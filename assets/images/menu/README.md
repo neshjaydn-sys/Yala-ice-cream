@@ -1,0 +1,3 @@
+Representative stock photography for the 14 menu cards (free-to-use images from Pexels, commercial use allowed), one per item, matched to each name's mood. These are NOT photographs of exact YOLO menu creations — no exact product photographs were confirmed — so `exactProductImage` stays `false` in `src/menu-data.js` and the interface labels them as representative imagery.
+
+If a verified YOLO photograph becomes available, replace the file here, then set `imageType: "photo"` and `exactProductImage: true` on that entry in `src/menu-data.js`. The abstract artwork remains in place as the automatic error fallback.

@@ -1,0 +1,1 @@
+Reserved for approved YOLO social posts, staff, customer and shop photography. The page uses an interior photo from the NairobiEats review page linked in the brief as a background image for the YOLO Wall artwork; it is removed if it fails to load.

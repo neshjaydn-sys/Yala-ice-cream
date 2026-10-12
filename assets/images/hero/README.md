@@ -1,0 +1,3 @@
+`choc-wide.webp` is cut from the supplied chocolate photograph (`Images/image 1_files/image 1.jpg`) and is the hero's full-bleed stage image. The alternate framings (`choc-scoop.webp`, `choc-drizzle.webp`, `choc-bowl.webp`, `choc-warm.webp`) were prepared from the same photograph for an earlier scroll sequence; they remain available as alternates but are not currently referenced by the page. All are one source in several framings: crops and a warm cream-caramel grade, no compositing. The photo is a campaign mood image, not an identified YOLO menu product.
+
+`flavour-sculpture.svg` is an original, code-drawn concept visual. It is retained as an unused spare; the hero's failure state now falls back to the page's flavour-gradient stage.
