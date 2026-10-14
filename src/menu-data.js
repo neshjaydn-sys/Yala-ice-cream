@@ -1,4 +1,3 @@
-```js
 // src/menu-data.js
 // YOLO Ice Cream menu data.
 // Product images are representative unless verified as exact product photos.
@@ -142,4 +141,3 @@ export const getMenuItemsByCategory = (category = "All") =>
   category === "All"
     ? menuItems
     : menuItems.filter((item) => item.category === category);
-```
