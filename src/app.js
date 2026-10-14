@@ -1,4 +1,3 @@
-```javascript
 import { menuItems, YOLO_INTERIOR_IMAGE } from "./menu-data.js";
 
 /* =========================================================
@@ -163,43 +162,33 @@ import { menuItems, YOLO_INTERIOR_IMAGE } from "./menu-data.js";
 
   const orbit = $("#yolo-orbit");
   const orbitRing = $("#yolo-orbit-ring");
-  const orbitPauseButton = $("#orbit-pause");
-  const orbitReverseButton = $("#orbit-reverse");
+  const orbitPrev = $("#orbit-prev");
+  const orbitNext = $("#orbit-next");
 
-  let orbitPaused = reducedMotion.matches;
-  let orbitReversed = false;
-
-  function updateOrbitControls() {
-    if (!orbitRing) return;
-
-    orbitRing.style.animationPlayState = orbitPaused
-      ? "paused"
-      : "running";
-
-    orbitRing.style.animationDirection = orbitReversed
-      ? "reverse"
-      : "normal";
-
-    if (orbitPauseButton) {
-      orbitPauseButton.setAttribute(
-        "aria-pressed",
-        String(orbitPaused)
-      );
-
-      orbitPauseButton.setAttribute(
-        "aria-label",
-        orbitPaused
-          ? "Resume carousel rotation"
-          : "Pause carousel rotation"
-      );
-
-      orbitPauseButton.textContent = orbitPaused ? "▶" : "Ⅱ";
-    }
+  function orbitStep() {
+    const card = orbitRing?.querySelector(".orbit__item");
+    if (!card) return 280;
+    const styles = window.getComputedStyle(orbitRing);
+    const gap = Number.parseFloat(styles.columnGap || styles.gap || "0") || 0;
+    return card.getBoundingClientRect().width + gap;
   }
 
-  orbitPauseButton?.addEventListener("click", () => {
-    orbitPaused = !orbitPaused;
-    updateOrbitControls();
+  orbitPrev?.addEventListener("click", () => {
+    orbit?.scrollBy({ left: -orbitStep(), behavior: reducedMotion.matches ? "auto" : "smooth" });
+  });
+  orbitNext?.addEventListener("click", () => {
+    orbit?.scrollBy({ left: orbitStep(), behavior: reducedMotion.matches ? "auto" : "smooth" });
+  });
+  orbit?.addEventListener("keydown", event => {
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      orbit.scrollBy({ left: orbitStep(), behavior: reducedMotion.matches ? "auto" : "smooth" });
+    } else if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      orbit.scrollBy({ left: -orbitStep(), behavior: reducedMotion.matches ? "auto" : "smooth" });
+    }
+  });
+
   });
 
   orbitReverseButton?.addEventListener("click", () => {
@@ -585,4 +574,3 @@ import { menuItems, YOLO_INTERIOR_IMAGE } from "./menu-data.js";
 
   console.info("YOLO Ice Cream website initialized.");
 })();
-```
