@@ -1,489 +1,800 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#360802">
-    <meta name="description" content="Find YOLO Ice Cream at Aga Khan Walk in Nairobi. Explore the menu, follow the YOLO Wall and plan your visit.">
-    <meta property="og:title" content="YOLO Ice Cream — It’s Always Ice Cream O’Clock">
-    <meta property="og:description" content="A little Nairobi joy, one flavour at a time. Find YOLO Ice Cream at Aga Khan Walk.">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="en_KE">
-    <meta property="og:image" content="https://pub-5bcc3edf34304d04b59dc91e1ad9d2fd.r2.dev/kenya.tortoisepath.com/uploads/2024/04/13133608/Yolo-Ice-Cream-Nairobi-Kenya-TortoisePathcom-2-jpeg.webp">
-    <meta property="og:image:alt" content="YOLO Ice Cream product photograph from Nairobi; the specific creation is not identified.">
-    <meta property="og:image:type" content="image/webp">
-    <meta property="og:image:width" content="2100">
-    <meta property="og:image:height" content="1181">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://pub-5bcc3edf34304d04b59dc91e1ad9d2fd.r2.dev/kenya.tortoisepath.com/uploads/2024/04/13133608/Yolo-Ice-Cream-Nairobi-Kenya-TortoisePathcom-2-jpeg.webp">
-    <meta name="twitter:image:alt" content="YOLO Ice Cream product photograph from Nairobi; the specific creation is not identified.">
-    <link rel="icon" type="image/jpeg" href="/assets/images/brand/yolo-logo.jpg">
-    <link rel="preconnect" href="https://pub-5bcc3edf34304d04b59dc91e1ad9d2fd.r2.dev">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
-    <link rel="preload" as="image" href="/assets/images/hero/choc-wide.webp" type="image/webp" fetchpriority="high">
-    <link rel="stylesheet" href="/styles.css">
-    <title>YOLO Ice Cream — It’s Always Ice Cream O’Clock</title>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "YOLO Ice Cream",
-        "telephone": "+254741755073",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Aga Khan Walk",
-          "addressLocality": "Nairobi",
-          "addressCountry": "KE"
-        }
-      }
-    </script>
-  </head>
-  <body>
-    <a class="skip-link" href="#main">Skip to content</a>
-    <div class="scroll-progress" aria-hidden="true"></div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#360802">
+  <meta name="description" content="Discover YOLO Ice Cream Nairobi. It's always ice cream o'clock.">
+  <title>YOLO Ice Cream — It's Always Ice Cream O'clock</title>
 
-    <header class="site-header" id="site-header">
-      <nav class="site-nav" aria-label="Main navigation">
-        <a class="wordmark" href="#top" aria-label="YOLO Ice Cream home">
-          <img class="wordmark__logo" src="/assets/images/brand/yolo-logo.jpg" alt="" width="68" height="68">
-        </a>
-        <div class="site-nav__links" id="desktop-links">
-          <a href="#menu">MENU</a>
-          <a href="#birthdays">BIRTHDAYS</a>
-          <a href="#wall">YOLO WALL</a>
-          <a href="#location">LOCATION</a>
-          <a class="nav-visit" href="#location">VISIT YOLO <span aria-hidden="true">↗</span></a>
-        </div>
-        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-links">
-          <span></span><span></span>
-        </button>
-      </nav>
-      <nav class="mobile-links" id="mobile-links" aria-label="Mobile navigation" hidden>
-        <a href="#menu">MENU <span>01</span></a>
-        <a href="#birthdays">BIRTHDAYS <span>02</span></a>
-        <a href="#wall">YOLO WALL <span>03</span></a>
-        <a href="#location">LOCATION <span>04</span></a>
-        <a class="mobile-links__visit" href="#location">VISIT YOLO <span aria-hidden="true">↗</span></a>
-      </nav>
-    </header>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-    <main id="main">
-      <section class="hero" id="top" data-flavour="strawberry" aria-labelledby="hero-title">
-        <div class="hero__pin" id="hero-pin">
-        <div class="hero__atmosphere" aria-hidden="true"></div>
+  <link rel="stylesheet" href="/styles.css">
 
-        <div class="hero__stage" aria-hidden="true">
-          <div class="hero__stage-parallax" id="hero-stage-parallax">
-            <img class="hero__stage-photo" id="hero-stage-photo" src="/assets/images/hero/choc-wide.webp" alt="" width="1225" height="700" fetchpriority="high" decoding="async">
-          </div>
-          <div class="hero__glow"></div>
-          <div class="hero__beam"></div>
-          <div class="hero__motes">
-            <span></span><span></span><span></span><span></span><span></span><span></span>
-          </div>
-          <div class="hero__scrim"></div>
-          <div class="hero__film-grain"></div>
-          <div class="hero__vignette"></div>
-        </div>
+  <style>
+    :root {
+      --yolo-orange: #f73b20;
+      --yolo-ink: #360802;
+      --yolo-cream: #fff8ef;
+      --yolo-white: #ffffff;
+    }
 
-        <div class="hero__ring hero__ring--outer" aria-hidden="true"></div>
-        <div class="hero__ring hero__ring--inner" aria-hidden="true"></div>
-        <div class="hero__floor" aria-hidden="true"></div>
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--yolo-cream);
+    }
+
+    body {
+      margin: 0;
+      color: var(--yolo-ink);
+      font-family: "DM Sans", sans-serif;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+
+    .site-header {
+      position: absolute;
+      z-index: 50;
+      inset: 0 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding: 24px 6%;
+      color: white;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 1.8rem;
+      letter-spacing: -.09em;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: .82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .visit-link, .cta {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--yolo-orange);
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .25s ease, background .25s ease;
+    }
+
+    .visit-link:hover, .cta:hover { transform: translateY(-3px); }
+
+    .hero {
+      position: relative;
+      min-height: 240vh;
+      background: var(--yolo-ink);
+      color: white;
+    }
+
+    .hero__pin {
+      position: sticky;
+      top: 0;
+      height: 100svh;
+      min-height: 620px;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero__video,
+    .hero__fallback,
+    .hero__shade {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero__video {
+      z-index: -3;
+      object-fit: cover;
+      opacity: .88;
+    }
+
+    .hero__fallback {
+      z-index: -4;
+      background:
+        radial-gradient(ellipse at 72% 45%, #a84224 0%, transparent 38%),
+        linear-gradient(125deg, #200501, #61200c 55%, #170401);
+    }
+
+    .hero__shade {
+      z-index: -2;
+      background:
+        linear-gradient(90deg, rgba(28, 4, 0, .82), rgba(28, 4, 0, .15) 80%),
+        linear-gradient(0deg, rgba(28, 4, 0, .6), transparent 50%);
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      width: 100%;
+      height: 100%;
+      padding: 120px 8% 70px;
+    }
+
+    .hero__copy { max-width: 700px; }
+
+    .eyebrow {
+      margin: 0 0 20px;
+      color: #ffb29c;
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(3.7rem, 8vw, 8.5rem);
+      font-weight: 700;
+      line-height: .88;
+      letter-spacing: -.065em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 span {
+      display: block;
+      color: #ff6a43;
+    }
+
+    .hero__description {
+      max-width: 430px;
+      margin: 28px 0;
+      color: rgba(255,255,255,.82);
+      line-height: 1.8;
+    }
+
+    .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .cta--outline {
+      border: 1px solid rgba(255,255,255,.65);
+      background: transparent;
+    }
+
+    .hero__flavour {
+      width: min(280px, 25vw);
+      align-self: flex-end;
+      margin-bottom: 30px;
+      padding: 22px;
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 20px;
+      background: rgba(40, 8, 2, .35);
+      backdrop-filter: blur(14px);
+    }
+
+    .hero__flavour small {
+      color: #ffb29c;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .hero__flavour h2 {
+      margin: 12px 0 6px;
+      font-family: "Playfair Display", serif;
+      font-size: 2rem;
+    }
+
+    .hero__flavour p { color: rgba(255,255,255,.75); font-size: .86rem; }
+
+    .flavour-selector {
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .flavour-dot {
+      width: 24px;
+      height: 24px;
+      padding: 0;
+      border: 2px solid rgba(255,255,255,.5);
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .flavour-dot[aria-pressed="true"] {
+      outline: 2px solid white;
+      outline-offset: 3px;
+    }
+
+    .flavour-dot--strawberry { background: #f25b75; }
+    .flavour-dot--chocolate { background: #542719; }
+    .flavour-dot--mango { background: #ffb72d; }
+    .flavour-dot--mint { background: #91c9a0; }
+    .flavour-dot--vanilla { background: #f4dfb5; }
+
+    .scroll-note {
+      position: absolute;
+      z-index: 3;
+      bottom: 24px;
+      left: 8%;
+      color: rgba(255,255,255,.75);
+      font-size: .7rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .section {
+      padding: 110px 7%;
+    }
+
+    .section-heading {
+      max-width: 780px;
+      margin: 0 auto 55px;
+      text-align: center;
+    }
+
+    .section-heading .eyebrow { color: var(--yolo-orange); }
+
+    .section-heading h2 {
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.5rem, 6vw, 5.5rem);
+      line-height: 1;
+      letter-spacing: -.055em;
+    }
+
+    .section-heading p {
+      max-width: 560px;
+      margin: 20px auto 0;
+      line-height: 1.8;
+      color: #76564c;
+    }
+
+    .story {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 70px;
+      background: var(--yolo-cream);
+    }
+
+    .story__image {
+      width: 100%;
+      min-height: 420px;
+      object-fit: cover;
+      border-radius: 10px 100px 10px 10px;
+    }
+
+    .story h2 {
+      margin: 0 0 20px;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.7rem, 5vw, 5rem);
+      line-height: .98;
+      letter-spacing: -.05em;
+    }
+
+    .story p { line-height: 1.9; color: #76564c; }
+
+    .orbit-section {
+      position: relative;
+      overflow: hidden;
+      background: #f4e8d9;
+    }
+
+    .orbit {
+      position: relative;
+      width: 100%;
+      max-width: 950px;
+      height: 460px;
+      margin: 0 auto;
+      perspective: 1100px;
+    }
+
+    .orbit__ring {
+      position: absolute;
+      inset: 0;
+      transform-style: preserve-3d;
+      animation: orbit-spin 26s linear infinite;
+    }
+
+    .orbit:hover .orbit__ring,
+    .orbit:focus-within .orbit__ring { animation-play-state: paused; }
+
+    .orbit__item {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 220px;
+      height: 285px;
+      overflow: hidden;
+      border-radius: 120px 120px 24px 24px;
+      background: #ead6c4;
+      box-shadow: 0 25px 60px rgba(54,8,2,.2);
+      transform:
+        translate(-50%, -50%)
+        rotateY(calc(var(--i) * 72deg))
+        translateZ(330px);
+    }
+
+    .orbit__item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .orbit__item span {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 35px 10px 18px;
+      color: white;
+      font-weight: 700;
+      text-align: center;
+      background: linear-gradient(transparent, rgba(35,6,1,.85));
+    }
+
+    .orbit-controls {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .orbit-controls button {
+      min-width: 48px;
+      min-height: 48px;
+      border: 1px solid rgba(54,8,2,.25);
+      border-radius: 50%;
+      background: transparent;
+      color: var(--yolo-ink);
+      cursor: pointer;
+    }
+
+    @keyframes orbit-spin {
+      from { transform: rotateY(0deg); }
+      to { transform: rotateY(360deg); }
+    }
+
+    .menu-section { background: white; }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .menu-card {
+      overflow: hidden;
+      border-radius: 18px;
+      background: var(--yolo-cream);
+    }
+
+    .menu-card img {
+      display: block;
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+
+    .menu-card__body { padding: 22px; }
+
+    .menu-card h3 {
+      margin: 0 0 8px;
+      font-family: "Playfair Display", serif;
+      font-size: 1.6rem;
+    }
+
+    .menu-card p { color: #76564c; line-height: 1.6; }
+
+    .menu-note {
+      margin-top: 25px;
+      color: #76564c;
+      font-size: .82rem;
+      text-align: center;
+    }
+
+    .gallery-section { background: var(--yolo-ink); color: white; }
+
+    .gallery-section .section-heading p { color: rgba(255,255,255,.7); }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      grid-auto-rows: 180px;
+      gap: 14px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .gallery-grid img:nth-child(1),
+    .gallery-grid img:nth-child(4) { grid-column: span 3; }
+
+    .gallery-grid img:nth-child(2),
+    .gallery-grid img:nth-child(3),
+    .gallery-grid img:nth-child(5) { grid-column: span 2; }
+
+    .visit-section { text-align: center; background: var(--yolo-orange); color: white; }
+
+    .visit-section h2 {
+      margin: 0 0 20px;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(3rem, 7vw, 6rem);
+      letter-spacing: -.06em;
+    }
+
+    .visit-section p { line-height: 1.8; }
+
+    .visit-section .cta { background: var(--yolo-ink); }
+
+    .site-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 30px 7%;
+      background: var(--yolo-ink);
+      color: white;
+      font-size: .85rem;
+    }
+
+    .site-footer a { text-decoration: underline; text-underline-offset: 4px; }
+
+    @media (max-width: 850px) {
+      .site-header { padding: 20px 5%; }
+      .site-nav { gap: 14px; }
+      .site-nav a:not(.visit-link) { display: none; }
+      .hero__content { align-items: flex-start; justify-content: center; flex-direction: column; padding: 120px 7% 70px; }
+      .hero__flavour { width: 100%; max-width: 330px; align-self: flex-start; margin: 0; }
+      .hero { min-height: 190vh; }
+      .story { grid-template-columns: 1fr; gap: 35px; }
+      .story__image { min-height: 300px; }
+      .menu-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .orbit { height: 380px; }
+      .orbit__item { width: 170px; height: 230px; transform: translate(-50%, -50%) rotateY(calc(var(--i) * 72deg)) translateZ(235px); }
+      .gallery-grid { grid-auto-rows: 140px; }
+    }
+
+    @media (max-width: 520px) {
+      .brand { font-size: 1.55rem; }
+      .visit-link { min-height: 42px; padding: 0 15px; font-size: .75rem; }
+      .hero__pin { min-height: 700px; }
+      .hero h1 { font-size: clamp(3.5rem, 17vw, 5.6rem); }
+      .hero__description { font-size: .9rem; }
+      .section { padding: 75px 6%; }
+      .menu-grid { grid-template-columns: 1fr; }
+      .menu-card img { height: 240px; }
+      .orbit { height: 310px; }
+      .orbit__item { width: 130px; height: 185px; transform: translate(-50%, -50%) rotateY(calc(var(--i) * 72deg)) translateZ(165px); }
+      .gallery-grid { grid-auto-rows: 115px; gap: 8px; }
+      .site-footer { align-items: flex-start; flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="YOLO Ice Cream home">YOLO<span style="color:#ff6a43">.</span></a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="#story">Our story</a>
+      <a href="#flavours">Flavours</a>
+      <a href="#menu">Menu</a>
+      <a href="#gallery">Gallery</a>
+      <a class="visit-link" href="#visit">Visit YOLO</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="top" data-flavour="strawberry" aria-label="YOLO Ice Cream introduction">
+      <div class="hero__pin" id="hero-pin">
+        <div class="hero__fallback" aria-hidden="true"></div>
+        <video
+          class="hero__video"
+          id="hero-scroll-video"
+          muted
+          playsinline
+          preload="auto"
+          poster="/assets/images/hero/choc-wide.webp"
+          aria-hidden="true"
+        >
+          <source src="/videos/yolo_ice_cream_hero.mp4" type="video/mp4">
+        </video>
+        <div class="hero__shade" aria-hidden="true"></div>
+
         <div class="hero__content">
           <div class="hero__copy">
-            <p class="eyebrow hero__eyebrow"><span class="eyebrow__dot"></span> YOLO ICE CREAM <span class="eyebrow__slash">/</span> NAIROBI</p>
-            <h1 id="hero-title"><span class="hero__line"><span class="hero__line-inner">IT’S ALWAYS</span></span><span class="hero__line"><span class="hero__line-inner">ICE CREAM</span></span><span class="hero__line"><span class="hero__line-inner hero__line-accent">O’CLOCK</span></span></h1>
-            <div class="hero__bottomline">
-            <p class="hero__lede">A little indulgence.<br>A lot of YOLO.</p>
-            <span class="hero__actions">
-              <a class="button button--pink hero__cta" href="#menu">EXPLORE THE MENU <span aria-hidden="true">→</span></a>
-              <a class="button button--ghost hero__visit" href="#location">VISIT YOLO <span aria-hidden="true">↗</span></a>
-            </span>
+            <p class="eyebrow">Made for your kind of happy</p>
+            <h1>It's always <span>ice cream</span> o'clock</h1>
+            <p class="hero__description">
+              Your little escape from ordinary. Find your flavour, take your time,
+              and make the moment yours.
+            </p>
+            <div class="hero__actions">
+              <a class="cta" href="#flavours">Explore flavours</a>
+              <a class="cta cta--outline" href="#visit">Find YOLO</a>
             </div>
           </div>
 
-          <div class="hero__scene" id="hero-scene">
-            <div class="hero__halo" aria-hidden="true"></div>
-            <div class="hero__flavour-card">
-              <span class="hero__flavour-label">IN THE MOOD FOR</span>
-              <span class="hero__flavour-name" id="hero-flavour-name" aria-live="polite">STRAWBERRY</span>
-              <span class="hero__flavour-tagline" id="hero-flavour-tagline">BRIGHT, BERRY, UNBOTHERED</span>
-              <span class="hero__flavour-meta">
-                <span class="hero__flavour-index" id="hero-flavour-index">01 / 05</span>
-                <span class="hero__cycle-track" aria-hidden="true"><span class="hero__cycle-bar" id="hero-cycle-bar"></span></span>
-              </span>
+          <aside class="hero__flavour" aria-live="polite">
+            <small>Today's mood</small>
+            <h2 id="hero-flavour-name">Strawberry</h2>
+            <p id="hero-flavour-tagline">Bright, berry, unbothered.</p>
+            <div class="flavour-selector" role="group" aria-label="Choose a flavour">
+              <button class="flavour-dot flavour-dot--strawberry" data-flavour-choice="strawberry" aria-label="Strawberry" aria-pressed="true"></button>
+              <button class="flavour-dot flavour-dot--chocolate" data-flavour-choice="chocolate" aria-label="Chocolate" aria-pressed="false"></button>
+              <button class="flavour-dot flavour-dot--mango" data-flavour-choice="mango" aria-label="Mango" aria-pressed="false"></button>
+              <button class="flavour-dot flavour-dot--mint" data-flavour-choice="mint" aria-label="Mint" aria-pressed="false"></button>
+              <button class="flavour-dot flavour-dot--vanilla" data-flavour-choice="vanilla" aria-label="Vanilla" aria-pressed="false"></button>
             </div>
-            <div class="hero__selector" role="group" aria-label="Choose a hero flavour">
-              <button type="button" class="hero__flavour is-active" data-flavour="strawberry" aria-pressed="true" aria-label="Show Strawberry flavour atmosphere"><span></span></button>
-              <button type="button" class="hero__flavour" data-flavour="chocolate" aria-pressed="false" aria-label="Show Chocolate flavour atmosphere"><span></span></button>
-              <button type="button" class="hero__flavour" data-flavour="mango" aria-pressed="false" aria-label="Show Mango flavour atmosphere"><span></span></button>
-              <button type="button" class="hero__flavour" data-flavour="mint" aria-pressed="false" aria-label="Show Mint flavour atmosphere"><span></span></button>
-              <button type="button" class="hero__flavour" data-flavour="vanilla" aria-pressed="false" aria-label="Show Vanilla flavour atmosphere"><span></span></button>
-              <span class="hero__selector-caption">THE FLAVOUR MOODBOARD</span>
-            </div>
-          </div>
+          </aside>
         </div>
-        <div class="hero__footer">
-          <span>NAIROBI CBD <span class="hero__footer-mark">✳</span> MADE FOR THE MOMENT</span>
-          <a href="#menu">SCROLL TO THE GOOD STUFF <span aria-hidden="true">↓</span></a>
-        </div>
-        <p class="hero__side-tag" aria-hidden="true">NAIROBI <i>✳</i> KENYA</p>
-        </div>
-      </section>
-
-      <section class="story section-pad reveal" id="story" aria-labelledby="story-title">
-        <div class="section-index">01 <span>/</span> A LITTLE YOLO</div>
-        <div class="story__grid">
-          <h2 id="story-title">SOME DAYS<br>NEED A<br><em>SOFTER</em><br>LANDING.</h2>
-          <div class="story__aside">
-            <p class="story__lead">A little pause in the middle of the city. A reason to make the ordinary feel special.</p>
-            <p>Find YOLO at Aga Khan Walk. Pick a name from the menu and make the moment yours.</p>
-            <a class="circle-link" href="#location" aria-label="Find YOLO Ice Cream at Aga Khan Walk"><span>FIND<br>YOLO</span><span class="circle-link__arrow" aria-hidden="true">↘</span></a>
-          </div>
-        </div>
-        <div class="story__feature">
-          <figure class="story__figure shot reveal">
-            <span class="shot__media">
-              <img src="/assets/images/gallery/bowl-gold-spoon.jpg" alt="Chocolate ice cream scoops in a dark bowl with a golden spoon, cream drizzle and chocolate pieces" width="626" height="626" loading="lazy" decoding="async" data-fallback>
-            </span>
-            <figcaption class="shot__caption"> EAT WITH YOUR EYES</figcaption>
-          </figure>
-          <div class="story__feature-copy reveal">
-            <span class="story__feature-kicker">✳ THE PAUSE, POURED</span>
-            <p class="story__feature-lead">Warm light, cold scoops, one golden spoon — the small ceremony of the very first bite.</p>
-            <p>Find YOLO at Aga Khan Walk, take your time and let the city wait outside for a minute.</p>
-            <a class="text-link" href="#moods">SEE THE FLAVOUR MOODS <span aria-hidden="true">↓</span></a>
-          </div>
-        </div>
-        <div class="story__marquee" aria-hidden="true">
-          <div class="story__marquee-track"><span>YOUR DAY, YOUR SCOOP</span><i>✳</i><span>YOUR DAY, YOUR SCOOP</span><i>✳</i><span>YOUR DAY, YOUR SCOOP</span><i>✳</i><span>YOUR DAY, YOUR SCOOP</span><i>✳</i><span>YOUR DAY, YOUR SCOOP</span><i>✳</i><span>YOUR DAY, YOUR SCOOP</span><i>✳</i><span>YOUR DAY, YOUR SCOOP</span><i>✳</i><span>YOUR DAY, YOUR SCOOP</span><i>✳</i></div>
-          <div class="story__marquee-track"><span>YOUR DAY, YOUR SCOOP</span><i>✳</i><span>YOUR DAY, YOUR SCOOP</span><i>✳</i><span>YOUR DAY, YOUR SCOOP</span><i>✳</i><span>YOUR DAY, YOUR SCOOP</span><i>✳</i><span>YOUR DAY, YOUR SCOOP</span><i>✳</i><span>YOUR DAY, YOUR SCOOP</span><i>✳</i><span>YOUR DAY, YOUR SCOOP</span><i>✳</i><span>YOUR DAY, YOUR SCOOP</span><i>✳</i></div>
-        </div>
-      </section>
-
-      <section class="moods" id="moods" aria-labelledby="moods-title">
-        <div class="moods__track" id="moods-track">
-          <div class="moods__stage">
-            <div class="moods__frames" id="moods-frames">
-              <figure class="moods__frame is-active">
-                <img src="/assets/images/gallery/scoops-spectrum.webp" alt="Colourful scoops of ice cream — orange, pink, mint, chocolate and vanilla — on a white plate with raspberries" loading="lazy" decoding="async" data-fallback>
-                <figcaption>SCOOPS · EVERY COLOUR AT ONCE</figcaption>
-              </figure>
-              <figure class="moods__frame">
-                <img src="/assets/images/gallery/berry-bowl.jpg" alt="Pink berry ice cream scoops with raspberry coulis in a cut-crystal bowl, fresh raspberries around it" loading="lazy" decoding="async" data-fallback>
-                <figcaption>BERRY · COULIS OVER EVERYTHING</figcaption>
-              </figure>
-              <figure class="moods__frame">
-                <img src="/assets/images/gallery/waffle-bowl.avif" alt="Three scoops — strawberry pink, mint green and vanilla — in a waffle bowl with sprinkles, chocolate drizzle and cherries" loading="lazy" decoding="async" data-fallback>
-                <figcaption>SPRINKLES · CONFETTI, BUT COLD</figcaption>
-              </figure>
-              <figure class="moods__frame">
-                <img src="/assets/images/gallery/sorbet-trio.jpg" alt="Three glasses of pink, mango and berry sorbet with mint leaves, orange slices and blueberries on a blue backdrop" loading="lazy" decoding="async" data-fallback>
-                <figcaption>THREE WAYS · PICK A MOOD</figcaption>
-              </figure>
-              <figure class="moods__frame">
-                <img src="/assets/images/gallery/shake-pair.jpg" alt="Two chocolate milkshakes with whipped cream and chocolate drizzle beside a scoop of chocolate ice cream" loading="lazy" decoding="async" data-fallback>
-                <figcaption>COCOA · DARK, COLD, DRAMATIC</figcaption>
-              </figure>
-            </div>
-            <div class="moods__scrim" aria-hidden="true"></div>
-            <div class="moods__head reveal">
-              <div class="section-index">02 <span>/</span> FLAVOUR MOODS</div>
-              <h2 id="moods-title">FLAVOUR IS<br><em>A FEELING.</em></h2>
-              <p>Five moods from the YOLO image set, revealed scene by scene as you scroll. Atmosphere first — never a menu promise.</p>
-            </div>
-            <div class="moods__meta" aria-hidden="true">
-              <span class="moods__counter" id="moods-counter">01 / 05</span>
-              <span class="moods__progress"><span id="moods-progress-bar"></span></span>
-              <span class="moods__label">SCROLL TO SWITCH THE MOOD</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="menu-section section-pad reveal" id="menu" aria-labelledby="menu-title">
-        <div class="section-heading">
-          <div>
-            <div class="section-index">03 <span>/</span> THE LINEUP</div>
-            <h2 id="menu-title">PICK YOUR<br><em>HAPPY.</em></h2>
-          </div>
-          <div class="section-heading__aside">
-            <p>Fourteen names from the YOLO menu. Open a card to see its price or a graphic mood study.</p>
-            <a class="text-link text-link--dark" href="https://flow.page/yolo_icecream" target="_blank" rel="noopener noreferrer">SEE YOLO’S MENU <span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-        <div class="menu-tools">
-          <div class="menu-filters" role="group" aria-label="Filter menu items">
-            <button type="button" class="menu-filter is-active" data-menu-filter="all" aria-pressed="true">ALL ITEMS</button>
-            <button type="button" class="menu-filter" data-menu-filter="Premiums" aria-pressed="false">PREMIUMS</button>
-            <button type="button" class="menu-filter" data-menu-filter="Other favourites" aria-pressed="false">OTHER FAVOURITES</button>
-          </div>
-          <span class="menu-tools__note"><span aria-hidden="true">✳</span> <span id="menu-count">14 ITEMS</span> · MENU PRICES</span>
-        </div>
-        <div class="menu-grid" id="menu-grid" aria-live="polite">
-          <ul class="menu-static-list">
-            <li><strong>PREMIUMS</strong> — Sugar Lips, Hot Shot, Rocket Fuel, Muscle Man, Almost Paradise, Hubba Bubba and Tazan — KES 1,490 each.</li>
-            <li><strong>OTHER FAVOURITES</strong> — Therapy KES 590; Minty KES 530; Tobby on a Boat KES 1,020; Frozen Feast KES 800.</li>
-            <li>Familiar Stranger, Time Keeper and My Ex — price unavailable.</li>
-          </ul>
-        </div>
-        <figure class="menu-shot shot reveal">
-          <span class="shot__media">
-            <img src="/assets/images/gallery/cones-trio.jpg" alt="Three waffle cones — vanilla, chocolate and strawberry — on dark wood with raspberries, mint and chocolate drizzle" width="1488" height="980" loading="lazy" decoding="async" data-fallback data-scrub-scale>
-          </span>
-          <figcaption class="menu-shot__caption">
-            <span>MOOD FRAME 02 · CONE LINE</span>
-            <p>Waffle cones, three moods. General YOLO mood imagery — not photographs of the named creations below.</p>
-          </figcaption>
-        </figure>
-        <div class="menu-footnote"><span class="menu-footnote__asterisk">✳</span><span>Graphic mood studies are not photographs of the named creations. Photography on this page is supplied mood imagery, shown for atmosphere only.</span></div>
-      </section>
-
-      <section class="creations section-pad reveal" id="creations" aria-labelledby="creations-title">
-        <div class="creations__heading">
-          <div>
-            <div class="section-index section-index--light">04 <span>/</span> FEATURED CREATIONS</div>
-            <h2 id="creations-title">NAMES THAT<br><em>STAY WITH YOU.</em></h2>
-          </div>
-          <div class="creations__controls">
-            <p>A graphic mood study of five names on YOLO’s menu. Artwork is abstract; product photography is not verified.</p>
-            <div class="creations__arrows" aria-label="Scroll featured creations">
-              <button type="button" data-carousel-step="-1" aria-label="Scroll creations left">←</button>
-              <button type="button" data-carousel-step="1" aria-label="Scroll creations right">→</button>
-            </div>
-          </div>
-        </div>
-        <div class="creations__track" id="creations-track" tabindex="0" aria-label="Featured menu creations">
-          <button type="button" class="creation-card creation-card--lips" data-product-open="Sugar Lips" aria-label="Open Sugar Lips details">
-            <span class="creation-card__number">01 / PREMIUMS</span><span class="creation-card__motif" aria-hidden="true">S</span>
-            <span class="creation-card__name">SUGAR<br>LIPS</span><span class="creation-card__price">KES 1,490 <i aria-hidden="true">↗</i></span>
-          </button>
-          <button type="button" class="creation-card creation-card--shot" data-product-open="Hot Shot" aria-label="Open Hot Shot details">
-            <span class="creation-card__number">02 / PREMIUMS</span><span class="creation-card__motif" aria-hidden="true">H</span>
-            <span class="creation-card__name">HOT<br>SHOT</span><span class="creation-card__price">KES 1,490 <i aria-hidden="true">↗</i></span>
-          </button>
-          <button type="button" class="creation-card creation-card--rocket" data-product-open="Rocket Fuel" aria-label="Open Rocket Fuel details">
-            <span class="creation-card__number">03 / PREMIUMS</span><span class="creation-card__motif" aria-hidden="true">R</span>
-            <span class="creation-card__name">ROCKET<br>FUEL</span><span class="creation-card__price">KES 1,490 <i aria-hidden="true">↗</i></span>
-          </button>
-          <button type="button" class="creation-card creation-card--paradise" data-product-open="Almost Paradise" aria-label="Open Almost Paradise details">
-            <span class="creation-card__number">04 / PREMIUMS</span><span class="creation-card__motif" aria-hidden="true">P</span>
-            <span class="creation-card__name">ALMOST<br>PARADISE</span><span class="creation-card__price">KES 1,490 <i aria-hidden="true">↗</i></span>
-          </button>
-          <button type="button" class="creation-card creation-card--bubba" data-product-open="Hubba Bubba" aria-label="Open Hubba Bubba details">
-            <span class="creation-card__number">05 / PREMIUMS</span><span class="creation-card__motif" aria-hidden="true">B</span>
-            <span class="creation-card__name">HUBBA<br>BUBBA</span><span class="creation-card__price">KES 1,490 <i aria-hidden="true">↗</i></span>
-          </button>
-        </div>
-        <div class="creations__dots" id="creations-dots" role="group" aria-label="Jump to a featured creation">
-          <button type="button" class="creations__dot is-active" data-creations-index="0" aria-label="Go to Sugar Lips" aria-current="true"></button>
-          <button type="button" class="creations__dot" data-creations-index="1" aria-label="Go to Hot Shot"></button>
-          <button type="button" class="creations__dot" data-creations-index="2" aria-label="Go to Rocket Fuel"></button>
-          <button type="button" class="creations__dot" data-creations-index="3" aria-label="Go to Almost Paradise"></button>
-          <button type="button" class="creations__dot" data-creations-index="4" aria-label="Go to Hubba Bubba"></button>
-        </div>
-        <p class="creations__scroll-note">DRAG OR SCROLL TO EXPLORE <span aria-hidden="true">→</span></p>
-      </section>
-
-      <section class="showcase section-pad reveal" id="showcase" aria-labelledby="showcase-title">
-        <div class="showcase__head">
-          <div>
-            <div class="section-index">05 <span>/</span> THE SHAKE INDEX</div>
-            <h2 id="showcase-title">SHAKE IT<br><em>UNQUIET.</em></h2>
-          </div>
-          <p class="showcase__lede">Tall, cold and a little dramatic. Five frames from the YOLO image set — discovered one scroll at a time.</p>
-        </div>
-        <div class="showcase__grid">
-          <figure class="showcase__item showcase__item--lead shot reveal" data-parallax="0.05">
-            <span class="shot__media">
-              <img src="/assets/images/gallery/shake-sprinkles.jpg" alt="Three milkshakes — caramel, strawberry and chocolate — topped with whipped cream, cherries and sprinkles" width="1200" height="1200" loading="lazy" decoding="async" data-fallback data-scrub-scale>
-            </span>
-            <figcaption><span>01</span> SPRINKLE THEORY</figcaption>
-          </figure>
-          <figure class="showcase__item shot reveal" data-parallax="-0.05">
-            <span class="shot__media">
-              <img src="/assets/images/gallery/shake-strawberry.jpg" alt="Pink strawberry milkshake with whipped cream, fresh strawberries and a pink straw" width="667" height="1000" loading="lazy" decoding="async" data-fallback>
-            </span>
-            <figcaption><span>02</span> PINK NOISE</figcaption>
-          </figure>
-          <figure class="showcase__item shot reveal" data-parallax="0.07">
-            <span class="shot__media">
-              <img src="/assets/images/gallery/shake-oreo.webp" alt="Cookies-and-cream milkshake with Oreo cookies, whipped cream and a red-striped straw" loading="lazy" decoding="async" data-fallback>
-            </span>
-            <figcaption><span>03</span> COOKIE STATIC</figcaption>
-          </figure>
-          <figure class="showcase__item shot reveal" data-parallax="-0.06">
-            <span class="shot__media">
-              <img src="/assets/images/gallery/shake-cherry.jpg" alt="Chocolate milkshake with whipped cream, chocolate drizzle, a maraschino cherry and a red-striped straw" width="1200" height="1571" loading="lazy" decoding="async" data-fallback>
-            </span>
-            <figcaption><span>04</span> CHERRY ON TOP</figcaption>
-          </figure>
-          <figure class="showcase__item shot reveal" data-parallax="0.05">
-            <span class="shot__media">
-              <img src="/assets/images/gallery/shake-smores.webp" alt="Two s'mores milkshakes with torched marshmallows, chocolate bars and gold straws" loading="lazy" decoding="async" data-fallback>
-            </span>
-            <figcaption><span>05</span> TORCHED</figcaption>
-          </figure>
-        </div>
-        <p class="showcase__note"><span aria-hidden="true">✳</span> Mood photography from the supplied YOLO image set — not identified as specific menu items.</p>
-      </section>
-
-      <figure class="vista shot reveal" id="vista">
-        <span class="shot__media">
-          <img src="/assets/images/gallery/cone-tower.jpg" alt="A tower of waffle cones piled with ice cream scoops, berries, chocolate and mint against a dark brown backdrop" width="1176" height="700" loading="lazy" decoding="async" data-fallback data-scrub-scale>
-        </span>
-        <figcaption class="vista__caption">
-          <span class="vista__kicker">✳ KEEP SCROLLING</span>
-          <p>THE STACK<br><em>GETS BIGGER.</em></p>
-        </figcaption>
-      </figure>
-
-      <section class="birthday section-pad reveal" id="birthdays" aria-labelledby="birthday-title">
-        <div class="birthday__ornament birthday__ornament--one" aria-hidden="true">✳</div>
-        <div class="birthday__ornament birthday__ornament--two" aria-hidden="true">✦</div>
-        <div class="birthday__left">
-        <div class="section-index section-index--light">06 <span>/</span> BIG DAY ENERGY</div>
-          <h2 id="birthday-title">BIRTHDAY?<br><em>YOLO.</em></h2>
-          <p>A birthday deserves a little more colour. Bring your people, find a favourite and make a moment of it.</p>
-          <div class="birthday__actions">
-            <a class="button button--light" href="tel:+254741755073">CALL YOLO <span aria-hidden="true">↗</span></a>
-            <a class="birthday__menu-link" href="https://maps.app.goo.gl/ACxuNucPj7eUcFYF7" target="_blank" rel="noopener noreferrer">FIND THE SHOP <span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-        <div class="birthday__right" aria-label="Abstract birthday inspired illustration">
-          <div class="birthday__orbit" aria-hidden="true"></div>
-          <figure class="birthday__photo shot reveal" data-parallax="-0.06">
-            <span class="shot__media">
-              <img src="/assets/images/gallery/parfait-tall.jpg" alt="Tall glass parfait with a vanilla swirl, chocolate sauce, berries and a mint leaf in warm window light" width="925" height="1280" loading="lazy" decoding="async" data-fallback>
-            </span>
-            <figcaption>PARTY MOOD · POUR IT HIGH</figcaption>
-          </figure>
-          <span class="birthday__tag">MAKE IT A YOLO DAY</span>
-          <div class="birthday__daymark" data-parallax="-0.05" aria-hidden="true">
-            <span class="birthday__daymark-symbol">✳</span>
-            <span class="birthday__daymark-copy">MAKE<br>IT A<br><em>YOLO DAY</em></span>
-          </div>
-          <p class="birthday__caption">A LITTLE MORE<br><strong>YOLO, PLEASE.</strong></p>
-        </div>
-      </section>
-
-      <section class="wall section-pad reveal" id="wall" aria-labelledby="wall-title">
-        <div class="wall__header">
-          <div>
-            <div class="section-index">07 <span>/</span> YOLO WALL</div>
-            <h2 id="wall-title">THE GOOD<br><em>STUFF.</em></h2>
-          </div>
-          <p>A glimpse inside YOLO. For the latest moments, head to the shop’s own feed.</p>
-        </div>
-        <div class="wall__feature">
-          <div class="wall__visual" aria-hidden="true">
-            <img class="wall__interior-image" id="wall-interior-image" alt="" loading="lazy" decoding="async">
-            <div class="wall__frame wall__frame--pink" data-parallax="0.05"><span>YOLO</span><i>✳</i></div>
-            <div class="wall__frame wall__frame--yellow" data-parallax="0.09"><span>ICE<br>CREAM</span><i>O’CLOCK</i></div>
-            <div class="wall__frame wall__frame--aqua" data-parallax="0.13"><span>NAIROBI</span><i>↗</i></div>
-            <span class="wall__spark wall__spark--one">✦</span>
-            <span class="wall__spark wall__spark--two">✳</span>
-          </div>
-          <div class="wall__copy">
-            <span class="wall__eyebrow">THE REAL YOLO FEED</span>
-            <p>From the counter to the big-scoop moments, catch the latest from the people who make YOLO, YOLO.</p>
-            <a class="text-link" href="https://www.instagram.com/yolo_icec/" target="_blank" rel="noopener noreferrer">FOLLOW @YOLO_ICEC <span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-        <div class="wall__strip">
-          <figure class="wall__tile shot reveal" data-parallax="0.05">
-            <span class="shot__media">
-              <img src="/assets/images/gallery/scoops-chocolate.jpg" alt="Chocolate ice cream scoops in a white bowl with chocolate pieces and warm bokeh lights" width="1225" height="700" loading="lazy" decoding="async" data-fallback>
-            </span>
-            <figcaption><span>01</span> COCOA HOUR</figcaption>
-          </figure>
-          <figure class="wall__tile shot reveal" data-parallax="-0.07">
-            <span class="shot__media">
-              <img src="/assets/images/gallery/scoops-marshmallow.jpg" alt="Chocolate ice cream scoops with marshmallows and chocolate drizzle in a ceramic dish" width="683" height="1024" loading="lazy" decoding="async" data-fallback>
-            </span>
-            <figcaption><span>02</span> SOFT HEART</figcaption>
-          </figure>
-          <figure class="wall__tile shot reveal" data-parallax="0.08">
-            <span class="shot__media">
-              <img src="/assets/images/gallery/scoops-macro.webp" alt="Close-up of pink and lilac ice cream scoops with chocolate drizzle, raspberries and wafers" loading="lazy" decoding="async" data-fallback>
-            </span>
-            <figcaption><span>03</span> LITTLE DETAILS</figcaption>
-          </figure>
-          <figure class="wall__tile shot reveal" data-parallax="-0.05">
-            <span class="shot__media">
-              <img src="/assets/images/gallery/shake-duo.jpg" alt="Two chocolate milkshakes with whipped cream, chocolate shavings and maraschino cherries" width="1200" height="1856" loading="lazy" decoding="async" data-fallback>
-            </span>
-            <figcaption><span>04</span> DOUBLE TROUBLE</figcaption>
-          </figure>
-        </div>
-          <p class="wall__note">Interior photo via <a href="https://nairobieats.co.ke/reviews/yolo-ice-cream/" target="_blank" rel="noopener noreferrer">NairobiEats</a>. The graphic tiles are artwork, not social posts. The strip above uses supplied YOLO mood photography.</p>
-      </section>
-
-      <section class="location section-pad reveal" id="location" aria-labelledby="location-title">
-        <div class="location__content">
-          <div class="section-index">08 <span>/</span> FIND YOUR WAY</div>
-          <h2 id="location-title">MEET US<br><em>IN THE CITY.</em></h2>
-          <p class="location__address">Aga Khan Walk<br>Nairobi CBD, Kenya</p>
-          <a class="location__phone" href="tel:+254741755073">+254 741 755 073</a>
-          <a class="button button--pink" href="https://maps.app.goo.gl/ACxuNucPj7eUcFYF7" target="_blank" rel="noopener noreferrer">GET DIRECTIONS <span aria-hidden="true">↗</span></a>
-        </div>
-        <div class="location-visual-card">
-          <div class="location-visual-card__topline"><span>YOLO ICE CREAM</span><span>NAIROBI <i aria-hidden="true">✳</i></span></div>
-          <div class="location-visual">
-            <img id="location-interior-image" alt="Interior of YOLO Ice Cream in Nairobi" width="675" height="675" loading="lazy" decoding="async">
-            <div class="location-place-card">
-              <span class="location-place-card__pin" aria-hidden="true">✳</span>
-              <span class="location-place-card__copy"><strong>YOLO ICE CREAM</strong><span>Aga Khan Walk · Nairobi, Kenya</span></span>
-              <div class="location-place-card__links">
-                <a href="tel:+254741755073">CALL <span aria-hidden="true">↗</span></a>
-                <a href="https://maps.app.goo.gl/ACxuNucPj7eUcFYF7" target="_blank" rel="noopener noreferrer">DIRECTIONS <span aria-hidden="true">↗</span></a>
-              </div>
-            </div>
-          </div>
-          <div class="location-visual-card__bottom"><span>AGA KHAN WALK · NAIROBI CBD</span><a href="https://nairobieats.co.ke/reviews/yolo-ice-cream/" target="_blank" rel="noopener noreferrer">INTERIOR PHOTO VIA NAIROBIEATS ↗</a></div>
-        </div>
-      </section>
-
-      <section class="last-call reveal" aria-labelledby="last-call-title">
-        <div class="last-call__sun" aria-hidden="true"></div>
-        <p class="eyebrow">WHEN THE CLOCK SAYS SO</p>
-        <h2 id="last-call-title">IT’S ALWAYS<br><em>ICE CREAM O’CLOCK.</em></h2>
-        <a class="button button--dark" href="tel:+254741755073">CALL +254 741 755 073 <span aria-hidden="true">↗</span></a>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <a class="wordmark wordmark--footer" href="#top" aria-label="YOLO Ice Cream, back to top">
-        <img class="wordmark__logo" src="/assets/images/brand/yolo-logo.jpg" alt="" width="92" height="92">
-      </a>
-      <div class="site-footer__contact">
-        <p>IT’S ALWAYS ICE CREAM O’CLOCK.</p>
-        <span>Aga Khan Walk · Nairobi, Kenya</span>
-        <a href="tel:+254741755073">+254 741 755 073</a>
+        <p class="scroll-note">Scroll to feel the moment ↓</p>
       </div>
-      <div class="site-footer__links">
-        <a href="https://www.instagram.com/yolo_icec/" target="_blank" rel="noopener noreferrer">INSTAGRAM ↗</a>
-        <a href="https://www.tiktok.com/@yolo_icec" target="_blank" rel="noopener noreferrer">TIKTOK ↗</a>
-        <a href="https://flow.page/yolo_icecream" target="_blank" rel="noopener noreferrer">YOLO MENUS ↗</a>
-        <a href="#location">LOCATION ↑</a>
-      </div>
-      <span class="site-footer__copyright">© <span id="copyright-year"></span> YOLO ICE CREAM · NAIROBI</span>
-    </footer>
+    </section>
 
-    <dialog class="product-dialog" id="product-dialog" aria-labelledby="product-dialog-title">
-      <button class="product-dialog__close" id="product-dialog-close" type="button" aria-label="Close product details">×</button>
-      <div class="product-dialog__art" id="product-dialog-art" aria-hidden="true"></div>
-      <div class="product-dialog__content">
-        <p class="product-dialog__category" id="product-dialog-category"></p>
-        <h2 id="product-dialog-title"></h2>
-        <p class="product-dialog__price" id="product-dialog-price"></p>
-        <p class="product-dialog__note">Abstract graphic study · Exact product photo unavailable</p>
-        <a class="button button--pink" href="#location">VISIT YOLO <span aria-hidden="true">↗</span></a>
+    <section class="section story" id="story">
+      <img
+        class="story__image"
+        src="/assets/images/gallery/bowl-gold-spoon.jpg"
+        alt="Ice cream served with a spoon"
+        loading="lazy"
+        onerror="this.style.display='none'"
+      >
+      <div>
+        <p class="eyebrow">A little scoop of joy</p>
+        <h2>Life's better with a little extra.</h2>
+        <p>
+          Some moments call for a treat. Others become memories because of one.
+          YOLO is your invitation to slow down, choose your favourite, and enjoy
+          the good stuff.
+        </p>
+        <a class="cta" href="#menu">Explore the menu</a>
       </div>
-    </dialog>
+    </section>
 
-    <script type="module" src="/src/app.js"></script>
-  </body>
+    <section class="section orbit-section" id="flavours">
+      <div class="section-heading">
+        <p class="eyebrow">Find your flavour</p>
+        <h2>Five moods. One happy place.</h2>
+        <p>Take a spin through the flavours and discover the mood that feels like you.</p>
+      </div>
+
+      <div class="orbit" id="yolo-orbit" aria-label="Circular ice cream image carousel">
+        <div class="orbit__ring" id="yolo-orbit-ring">
+          <article class="orbit__item" style="--i:0">
+            <img src="/assets/images/gallery/berry-bowl.jpg" alt="Berry ice cream" loading="lazy">
+            <span>Strawberry</span>
+          </article>
+          <article class="orbit__item" style="--i:1">
+            <img src="/assets/images/gallery/scoops-spectrum.webp" alt="Assorted ice cream scoops" loading="lazy">
+            <span>Chocolate</span>
+          </article>
+          <article class="orbit__item" style="--i:2">
+            <img src="/assets/images/gallery/sorbet-trio.jpg" alt="Colourful sorbet scoops" loading="lazy">
+            <span>Mango</span>
+          </article>
+          <article class="orbit__item" style="--i:3">
+            <img src="/assets/images/gallery/waffle-bowl.avif" alt="Ice cream in a waffle bowl" loading="lazy">
+            <span>Mint</span>
+          </article>
+          <article class="orbit__item" style="--i:4">
+            <img src="/assets/images/gallery/shake-pair.jpg" alt="Two ice cream shakes" loading="lazy">
+            <span>Vanilla</span>
+          </article>
+        </div>
+      </div>
+      <div class="orbit-controls">
+        <button type="button" id="orbit-pause" aria-pressed="false" aria-label="Pause carousel rotation">Ⅱ</button>
+        <button type="button" id="orbit-reverse" aria-label="Reverse carousel rotation">↺</button>
+      </div>
+    </section>
+
+    <section class="section menu-section" id="menu">
+      <div class="section-heading">
+        <p class="eyebrow">Something for every mood</p>
+        <h2>Meet your next favourite.</h2>
+        <p>Explore a few names from the YOLO menu. Please confirm current availability and prices with the shop.</p>
+      </div>
+
+      <div class="menu-grid">
+        <article class="menu-card">
+          <img src="/assets/images/menu/therapy.jpg" alt="Ice cream treat representing Therapy" loading="lazy">
+          <div class="menu-card__body">
+            <h3>Therapy</h3>
+            <p>A little moment just for you.</p>
+          </div>
+        </article>
+        <article class="menu-card">
+          <img src="/assets/images/menu/minty.jpg" alt="Ice cream treat representing Minty" loading="lazy">
+          <div class="menu-card__body">
+            <h3>Minty</h3>
+            <p>Fresh mood, cool moment.</p>
+          </div>
+        </article>
+        <article class="menu-card">
+          <img src="/assets/images/menu/tobby-boat.jpg" alt="Ice cream treat representing Tobby on a Boat" loading="lazy">
+          <div class="menu-card__body">
+            <h3>Tobby on a Boat</h3>
+            <p>A name worth discovering.</p>
+          </div>
+        </article>
+      </div>
+      <p class="menu-note">Menu photographs may be representative rather than exact product images.</p>
+    </section>
+
+    <section class="section gallery-section" id="gallery">
+      <div class="section-heading">
+        <p class="eyebrow">The YOLO wall</p>
+        <h2>Good days look like this.</h2>
+        <p>A little colour, a little sweetness, and moments worth keeping.</p>
+      </div>
+      <div class="gallery-grid">
+        <img src="/assets/images/gallery/scoops-spectrum.webp" alt="Colourful ice cream scoops" loading="lazy">
+        <img src="/assets/images/gallery/berry-bowl.jpg" alt="Berry ice cream bowl" loading="lazy">
+        <img src="/assets/images/gallery/waffle-bowl.avif" alt="Waffle bowl dessert" loading="lazy">
+        <img src="/assets/images/gallery/sorbet-trio.jpg" alt="Three colourful sorbet scoops" loading="lazy">
+        <img src="/assets/images/gallery/shake-pair.jpg" alt="Ice cream shakes" loading="lazy">
+      </div>
+    </section>
+
+    <section class="section visit-section" id="visit">
+      <p class="eyebrow" style="color:#fff">Your next happy place</p>
+      <h2>It's ice cream o'clock.</h2>
+      <p>Come through to YOLO Ice Cream at Aga Khan Walk, Nairobi.</p>
+      <p>Call <a href="tel:+254741755073">+254 741 755 073</a></p>
+      <a class="cta" href="https://www.google.com/maps/search/?api=1&query=YOLO+Ice+Cream+Aga+Khan+Walk+Nairobi" target="_blank" rel="noopener noreferrer">Get directions</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand" href="#top">YOLO.</a>
+    <span>It's always ice cream o'clock.</span>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+
+  <script>
+    (() => {
+      const hero = document.querySelector("#top");
+      const video = document.querySelector("#hero-scroll-video");
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      const flavourName = document.querySelector("#hero-flavour-name");
+      const flavourTagline = document.querySelector("#hero-flavour-tagline");
+      const flavourButtons = [...document.querySelectorAll("[data-flavour-choice]")];
+
+      const flavourInfo = {
+        strawberry: ["Strawberry", "Bright, berry, unbothered."],
+        chocolate: ["Chocolate", "Dark, rich, unapologetic."],
+        mango: ["Mango", "Sunshine, served cold."],
+        mint: ["Mint", "Cool, calm, completely fresh."],
+        vanilla: ["Vanilla", "Soft, classic, always right."]
+      };
+
+      let frameRequested = false;
+
+      function updateVideoFromScroll() {
+        frameRequested = false;
+        if (!hero || !video || reducedMotion.matches || !Number.isFinite(video.duration) || video.duration <= 0) return;
+
+        const rect = hero.getBoundingClientRect();
+        const scrollableDistance = Math.max(1, hero.offsetHeight - window.innerHeight);
+        const progress = Math.min(1, Math.max(0, -rect.top / scrollableDistance));
+        const targetTime = progress * video.duration;
+
+        if (Math.abs(video.currentTime - targetTime) > 0.04) {
+          try { video.currentTime = targetTime; } catch (_) {}
+        }
+      }
+
+      function requestVideoUpdate() {
+        if (!frameRequested) {
+          frameRequested = true;
+          window.requestAnimationFrame(updateVideoFromScroll);
+        }
+      }
+
+      if (video) {
+        video.pause();
+        video.addEventListener("loadedmetadata", requestVideoUpdate);
+        video.addEventListener("error", () => {
+          video.style.display = "none";
+        });
+        window.addEventListener("scroll", requestVideoUpdate, { passive: true });
+        window.addEventListener("resize", requestVideoUpdate);
+
+        if (reducedMotion.matches) {
+          video.removeAttribute("autoplay");
+          video.pause();
+        } else {
+          video.addEventListener("loadeddata", requestVideoUpdate, { once: true });
+        }
+      }
+
+      flavourButtons.forEach(button => {
+        button.addEventListener("click", () => {
+          const flavour = button.dataset.flavourChoice;
+          const info = flavourInfo[flavour];
+          if (!info) return;
+
+          hero.dataset.flavour = flavour;
+          flavourName.textContent = info[0];
+          flavourTagline.textContent = info[1];
+
+          flavourButtons.forEach(item => {
+            item.setAttribute("aria-pressed", String(item === button));
+          });
+        });
+      });
+
+      const orbit = document.querySelector("#yolo-orbit");
+      const ring = document.querySelector("#yolo-orbit-ring");
+      const pauseButton = document.querySelector("#orbit-pause");
+      const reverseButton = document.querySelector("#orbit-reverse");
+      let paused = reducedMotion.matches;
+      let reversed = false;
+
+      function applyOrbitState() {
+        if (!ring) return;
+        ring.style.animationPlayState = paused ? "paused" : "running";
+        ring.style.animationDirection = reversed ? "reverse" : "normal";
+        if (pauseButton) {
+          pauseButton.setAttribute("aria-pressed", String(paused));
+          pauseButton.setAttribute("aria-label", paused ? "Resume carousel rotation" : "Pause carousel rotation");
+          pauseButton.textContent = paused ? "▶" : "Ⅱ";
+        }
+      }
+
+      pauseButton?.addEventListener("click", () => {
+        paused = !paused;
+        applyOrbitState();
+      });
+
+      reverseButton?.addEventListener("click", () => {
+        reversed = !reversed;
+        applyOrbitState();
+      });
+
+      orbit?.addEventListener("mouseenter", () => {
+        if (ring) ring.style.animationPlayState = "paused";
+      });
+
+      orbit?.addEventListener("mouseleave", () => {
+        if (ring) ring.style.animationPlayState = paused ? "paused" : "running";
+      });
+
+      applyOrbitState();
+      requestVideoUpdate();
+    })();
+  </script>
+
+  <script type="module" src="/src/app.js"></script>
+</body>
 </html>
+```
