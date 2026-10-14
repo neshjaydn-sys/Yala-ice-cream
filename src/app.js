@@ -176,9 +176,11 @@ import { menuItems, YOLO_INTERIOR_IMAGE } from "./menu-data.js";
   orbitPrev?.addEventListener("click", () => {
     orbit?.scrollBy({ left: -orbitStep(), behavior: reducedMotion.matches ? "auto" : "smooth" });
   });
+
   orbitNext?.addEventListener("click", () => {
     orbit?.scrollBy({ left: orbitStep(), behavior: reducedMotion.matches ? "auto" : "smooth" });
   });
+
   orbit?.addEventListener("keydown", event => {
     if (event.key === "ArrowRight") {
       event.preventDefault();
@@ -188,35 +190,6 @@ import { menuItems, YOLO_INTERIOR_IMAGE } from "./menu-data.js";
       orbit.scrollBy({ left: -orbitStep(), behavior: reducedMotion.matches ? "auto" : "smooth" });
     }
   });
-
-  });
-
-  orbitReverseButton?.addEventListener("click", () => {
-    orbitReversed = !orbitReversed;
-    updateOrbitControls();
-  });
-
-  orbit?.addEventListener("mouseenter", () => {
-    if (orbitRing) {
-      orbitRing.style.animationPlayState = "paused";
-    }
-  });
-
-  orbit?.addEventListener("mouseleave", () => {
-    updateOrbitControls();
-  });
-
-  orbit?.addEventListener("focusin", () => {
-    if (orbitRing) {
-      orbitRing.style.animationPlayState = "paused";
-    }
-  });
-
-  orbit?.addEventListener("focusout", () => {
-    updateOrbitControls();
-  });
-
-  updateOrbitControls();
 
   /* =======================================================
      4. MENU RENDERING
