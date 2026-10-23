@@ -1,35 +1,170 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#360802">
-  <meta name="description" content="Discover YOLO Ice Cream Nairobi. It's always ice cream o'clock.">
-  <title>YOLO Ice Cream — It's Always Ice Cream O'clock</title>
+  <meta name="theme-color" content="#2b100d">
 
+  <!-- ===== SEO ===== -->
+  <title>YOLO Ice Cream — It's Always Ice Cream O'clock | Aga Khan Walk, Nairobi</title>
+  <meta name="description" content="YOLO Ice Cream on Aga Khan Walk, Nairobi. Premium scoops, shakes and frozen creations. It's always ice cream o'clock.">
+  <link rel="canonical" href="https://yolocecream.vercel.app/">
+
+  <!-- ===== Open Graph / Twitter ===== -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="YOLO Ice Cream">
+  <meta property="og:title" content="YOLO Ice Cream — It's Always Ice Cream O'clock">
+  <meta property="og:description" content="Premium scoops, shakes and frozen creations on Aga Khan Walk, Nairobi. Find your flavour.">
+  <meta property="og:url" content="https://yolocecream.vercel.app/">
+  <meta property="og:image" content="https://yolocecream.vercel.app/assets/images/hero/choc-wide.webp">
+  <meta property="og:image:alt" content="Rich chocolate ice cream in a bowl">
+  <meta property="og:locale" content="en_KE">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="YOLO Ice Cream — It's Always Ice Cream O'clock">
+  <meta name="twitter:description" content="Premium scoops, shakes and frozen creations on Aga Khan Walk, Nairobi.">
+  <meta name="twitter:image" content="https://yolocecream.vercel.app/assets/images/hero/choc-wide.webp">
+
+  <!-- ===== Favicon ===== -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- ===== Fonts ===== -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/styles.css">
+  <!-- ===== Stylesheet (relative path so it works on any host / subfolder) ===== -->
+  <link rel="stylesheet" href="styles.css">
 
-  </head>
+  <!-- ===== Structured data (rich results) ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Where is YOLO Ice Cream?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "YOLO Ice Cream is on Aga Khan Walk in Nairobi, Kenya. Tap 'Open directions' on this site to navigate straight to the shop."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does the ice cream cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Listed prices range from KES 530 for other favourites to KES 1,490 for the premium creations. Our listed prices come from an earlier menu brief, so please confirm current prices with the shop before visiting."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are your opening hours?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We haven't published verified opening hours on this site. Please call +254 741 755 073 or check the YOLO Ice Cream Instagram stories before visiting."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I celebrate a birthday or group occasion at YOLO?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You're very welcome to celebrate with us. Call +254 741 755 073 or send a DM to @yolo_icec on Instagram and we'll help with the details."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are the photos on this site the exact products?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Menu photographs are representative stock imagery matched to each creation's mood, and every card is labelled 'Representative image'. The real thing is even better."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I contact YOLO Ice Cream?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Call +254 741 755 073, or message @yolo_icec on Instagram. You can also find us on Aga Khan Walk in Nairobi."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "IceCreamShop",
+    "name": "YOLO Ice Cream",
+    "description": "Premium ice cream, shakes and frozen creations in Nairobi. It's always ice cream o'clock.",
+    "url": "https://yolocecream.vercel.app/",
+    "telephone": "+254741755073",
+    "priceRange": "KES 530–1,490",
+    "image": "https://yolocecream.vercel.app/assets/images/hero/choc-wide.webp",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Aga Khan Walk",
+      "addressLocality": "Nairobi",
+      "addressCountry": "KE"
+    },
+    "hasMap": "https://www.google.com/maps/search/?api=1&query=YOLO+Ice+Cream+Aga+Khan+Walk+Nairobi",
+    "sameAs": [
+      "https://www.instagram.com/yolo_icec/"
+    ]
+  }
+  </script>
+</head>
 
 <body>
-  <header class="site-header">
-    <a class="brand" href="#top" aria-label="YOLO Ice Cream home">YOLO<span style="color:#ff6a43">.</span></a>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <span class="scroll-progress" id="scroll-progress" aria-hidden="true"></span>
+
+    <a class="brand" href="#top" aria-label="YOLO Ice Cream — back to top">YOLO<span>.</span></a>
+
     <nav class="site-nav" aria-label="Main navigation">
       <a href="#story">Our story</a>
       <a href="#flavours">Flavours</a>
       <a href="#menu">Menu</a>
       <a href="#gallery">The wall</a>
+      <a href="#celebrate">Celebrate</a>
+      <a href="#faq">FAQ</a>
       <a href="#location">Find us</a>
       <a class="visit-link" href="#visit">Visit YOLO</a>
     </nav>
+
+    <button
+      class="nav-toggle"
+      id="nav-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="mobile-nav"
+      aria-label="Open menu"
+    >
+      <span class="nav-toggle__bar" aria-hidden="true"></span>
+      <span class="nav-toggle__bar" aria-hidden="true"></span>
+      <span class="nav-toggle__bar" aria-hidden="true"></span>
+    </button>
   </header>
 
-  <main>
+  <!-- Mobile / narrow-screen navigation panel -->
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <nav aria-label="Mobile navigation">
+      <a href="#story">Our story</a>
+      <a href="#flavours">Flavours</a>
+      <a href="#menu">Menu</a>
+      <a href="#gallery">The wall</a>
+      <a href="#celebrate">Celebrate</a>
+      <a href="#faq">FAQ</a>
+      <a href="#location">Find us</a>
+      <a class="cta" href="#visit">Visit YOLO</a>
+    </nav>
+  </div>
+
+  <main id="main-content">
+    <!-- ============ HERO — scroll-controlled video ============ -->
     <section class="hero" id="top" data-flavour="strawberry" aria-label="YOLO Ice Cream introduction">
       <div class="hero__pin" id="hero-pin">
         <div class="hero__fallback" aria-hidden="true"></div>
@@ -38,11 +173,12 @@
           id="hero-scroll-video"
           muted
           playsinline
-          preload="auto"
-          poster="/assets/images/hero/choc-wide.webp"
+          preload="metadata"
+          poster="assets/images/hero/choc-wide.webp"
           aria-hidden="true"
+          tabindex="-1"
         >
-          <source src="/videos/yolo_ice_cream_hero.mp4" type="video/mp4">
+          <source src="videos/yolo_ice_cream_hero.mp4" type="video/mp4">
         </video>
         <div class="hero__shade" aria-hidden="true"></div>
 
@@ -65,11 +201,11 @@
             <h2 id="hero-flavour-name">Strawberry</h2>
             <p id="hero-flavour-tagline">Bright, berry, unbothered.</p>
             <div class="flavour-selector" role="group" aria-label="Choose a flavour">
-              <button class="flavour-dot flavour-dot--strawberry" data-flavour-choice="strawberry" aria-label="Strawberry" aria-pressed="true"></button>
-              <button class="flavour-dot flavour-dot--chocolate" data-flavour-choice="chocolate" aria-label="Chocolate" aria-pressed="false"></button>
-              <button class="flavour-dot flavour-dot--mango" data-flavour-choice="mango" aria-label="Mango" aria-pressed="false"></button>
-              <button class="flavour-dot flavour-dot--mint" data-flavour-choice="mint" aria-label="Mint" aria-pressed="false"></button>
-              <button class="flavour-dot flavour-dot--vanilla" data-flavour-choice="vanilla" aria-label="Vanilla" aria-pressed="false"></button>
+              <button type="button" class="flavour-dot flavour-dot--strawberry" data-flavour-choice="strawberry" aria-label="Strawberry" aria-pressed="true"></button>
+              <button type="button" class="flavour-dot flavour-dot--chocolate" data-flavour-choice="chocolate" aria-label="Chocolate" aria-pressed="false"></button>
+              <button type="button" class="flavour-dot flavour-dot--mango" data-flavour-choice="mango" aria-label="Mango" aria-pressed="false"></button>
+              <button type="button" class="flavour-dot flavour-dot--mint" data-flavour-choice="mint" aria-label="Mint" aria-pressed="false"></button>
+              <button type="button" class="flavour-dot flavour-dot--vanilla" data-flavour-choice="vanilla" aria-label="Vanilla" aria-pressed="false"></button>
             </div>
           </aside>
         </div>
@@ -77,15 +213,16 @@
       </div>
     </section>
 
+    <!-- ============ STORY ============ -->
     <section class="section story" id="story">
       <img
         class="story__image"
-        src="/assets/images/gallery/bowl-gold-spoon.jpg"
-        alt="Ice cream served with a spoon"
+        src="assets/images/gallery/bowl-gold-spoon.jpg"
+        alt="A bowl of ice cream served with a golden spoon"
         loading="lazy"
-        onerror="this.style.display='none'"
+        decoding="async"
       >
-      <div>
+      <div class="reveal">
         <p class="eyebrow">A little scoop of joy</p>
         <h2>Life's better with a little extra.</h2>
         <p>
@@ -97,94 +234,313 @@
       </div>
     </section>
 
+    <!-- ============ FLAVOURS — manual carousel ============ -->
     <section class="section orbit-section" id="flavours">
-      <div class="section-heading">
+      <div class="section-heading reveal">
         <p class="eyebrow">Find your flavour</p>
         <h2>Five moods. One happy place.</h2>
         <p>Take a spin through the flavours and discover the mood that feels like you.</p>
       </div>
 
-      <div class="orbit" id="yolo-orbit" role="region" tabindex="0" aria-label="Ice cream flavour carousel. Use the arrow keys to explore.">
+      <div class="orbit" id="yolo-orbit" role="region" tabindex="0" aria-label="Ice cream flavour carousel. Drag, or use the left and right arrow keys to explore.">
         <div class="orbit__ring" id="yolo-orbit-ring">
-          <article class="orbit__item" style="--i:0">
-            <img src="/assets/images/gallery/berry-bowl.jpg" alt="Berry ice cream" loading="lazy">
+          <article class="orbit__item" data-flavour-card="strawberry">
+            <img src="assets/images/gallery/berry-bowl.jpg" alt="Berry ice cream in a bowl" loading="lazy" decoding="async">
             <span>Strawberry</span>
           </article>
-          <article class="orbit__item" style="--i:1">
-            <img src="/assets/images/gallery/scoops-spectrum.webp" alt="Assorted ice cream scoops" loading="lazy">
+          <article class="orbit__item" data-flavour-card="chocolate">
+            <img src="assets/images/gallery/scoops-chocolate.jpg" alt="Chocolate ice cream scoops" loading="lazy" decoding="async">
             <span>Chocolate</span>
           </article>
-          <article class="orbit__item" style="--i:2">
-            <img src="/assets/images/gallery/sorbet-trio.jpg" alt="Colourful sorbet scoops" loading="lazy">
+          <article class="orbit__item" data-flavour-card="mango">
+            <img src="assets/images/gallery/sorbet-trio.jpg" alt="Colourful mango sorbet scoops" loading="lazy" decoding="async">
             <span>Mango</span>
           </article>
-          <article class="orbit__item" style="--i:3">
-            <img src="/assets/images/gallery/waffle-bowl.avif" alt="Ice cream in a waffle bowl" loading="lazy">
+          <article class="orbit__item" data-flavour-card="mint">
+            <img src="assets/images/gallery/waffle-bowl.avif" alt="Ice cream in a waffle bowl" loading="lazy" decoding="async">
             <span>Mint</span>
           </article>
-          <article class="orbit__item" style="--i:4">
-            <img src="/assets/images/gallery/shake-pair.jpg" alt="Two ice cream shakes" loading="lazy">
+          <article class="orbit__item" data-flavour-card="vanilla">
+            <img src="assets/images/gallery/shake-pair.jpg" alt="Two creamy vanilla shakes" loading="lazy" decoding="async">
             <span>Vanilla</span>
+          </article>
+          <article class="orbit__item" data-flavour-card="spectrum">
+            <img src="assets/images/gallery/scoops-spectrum.webp" alt="A spectrum of assorted ice cream scoops" loading="lazy" decoding="async">
+            <span>All of them</span>
           </article>
         </div>
       </div>
-      <div class="orbit-controls" aria-label="Carousel controls">
+
+      <div class="orbit-controls">
         <button type="button" id="orbit-prev" aria-label="Show previous flavours">←</button>
-        <p class="orbit-hint">Drag or use the arrows to explore</p>
+        <p class="orbit-hint">Drag, swipe or use the arrow keys to explore</p>
         <button type="button" id="orbit-next" aria-label="Show next flavours">→</button>
       </div>
     </section>
 
+    <!-- ============ SIGNATURE CREATIONS ============ -->
+    <section class="section signatures-section" id="signatures" aria-labelledby="signatures-title">
+      <div class="section-heading reveal">
+        <p class="eyebrow">House favourites</p>
+        <h2 id="signatures-title">Ask for these by name.</h2>
+        <p>A few creations that regulars come back for. Photography is representative — the real thing is better.</p>
+      </div>
+
+      <div class="signature-grid reveal">
+        <article class="signature-card">
+          <img src="assets/images/menu/tobby-boat.jpg" alt="Tobby on a Boat — representative image" loading="lazy" decoding="async">
+          <span class="signature-card__price">KES 1,020</span>
+          <div class="signature-card__caption">
+            <p class="signature-card__category">Other favourites</p>
+            <h3>Tobby on a Boat</h3>
+          </div>
+        </article>
+        <article class="signature-card">
+          <img src="assets/images/menu/sugar-lips.jpg" alt="Sugar Lips — representative image" loading="lazy" decoding="async">
+          <span class="signature-card__price">KES 1,490</span>
+          <div class="signature-card__caption">
+            <p class="signature-card__category">Premiums</p>
+            <h3>Sugar Lips</h3>
+          </div>
+        </article>
+        <article class="signature-card">
+          <img src="assets/images/menu/therapy.jpg" alt="Therapy — representative image" loading="lazy" decoding="async">
+          <span class="signature-card__price">KES 590</span>
+          <div class="signature-card__caption">
+            <p class="signature-card__category">Other favourites</p>
+            <h3>Therapy</h3>
+          </div>
+        </article>
+        <article class="signature-card">
+          <img src="assets/images/menu/familiar-stranger.jpg" alt="Familiar Stranger — representative image" loading="lazy" decoding="async">
+          <div class="signature-card__caption">
+            <p class="signature-card__category">Other favourites</p>
+            <h3>Familiar Stranger</h3>
+          </div>
+        </article>
+      </div>
+
+      <div class="signatures-cta reveal">
+        <a class="cta" href="#menu">See the full menu</a>
+      </div>
+    </section>
+
+    <!-- ============ MENU ============ -->
     <section class="section menu-section" id="menu">
-      <div class="section-heading">
+      <div class="section-heading reveal">
         <p class="eyebrow">Something for every mood</p>
         <h2>Meet your next favourite.</h2>
         <p>Explore a few names from the YOLO menu. Please confirm current availability and prices with the shop.</p>
       </div>
 
-      <div class="menu-grid">
-        <article class="menu-card">
-          <img src="/assets/images/menu/therapy.jpg" alt="Ice cream treat representing Therapy" loading="lazy">
+      <div class="menu-filters" role="group" aria-label="Filter the menu by category">
+        <button type="button" class="menu-filter" data-menu-filter="all" aria-pressed="true">All</button>
+        <button type="button" class="menu-filter" data-menu-filter="Premiums" aria-pressed="false">Premiums</button>
+        <button type="button" class="menu-filter" data-menu-filter="Other favourites" aria-pressed="false">Other favourites</button>
+      </div>
+
+      <!--
+        The full menu below is the no-JavaScript fallback and is replaced by
+        src/app.js with the same content rendered from src/menu-data.js.
+        Prices come from the supplied brief — verify with the shop before publishing.
+      -->
+      <div class="menu-grid" id="menu-grid">
+        <article class="menu-card" data-menu-category="premiums">
+          <img src="assets/images/menu/sugar-lips.jpg" alt="Sugar Lips — representative image" loading="lazy" decoding="async">
           <div class="menu-card__body">
+            <p class="menu-card__category">Premiums</p>
+            <h3>Sugar Lips</h3>
+            <p class="menu-card__price">KES 1,490</p>
+            <p class="menu-card__note">Representative image</p>
+          </div>
+        </article>
+        <article class="menu-card" data-menu-category="premiums">
+          <img src="assets/images/menu/hot-shot.jpg" alt="Hot Shot — representative image" loading="lazy" decoding="async">
+          <div class="menu-card__body">
+            <p class="menu-card__category">Premiums</p>
+            <h3>Hot Shot</h3>
+            <p class="menu-card__price">KES 1,490</p>
+            <p class="menu-card__note">Representative image</p>
+          </div>
+        </article>
+        <article class="menu-card" data-menu-category="premiums">
+          <img src="assets/images/menu/rocket-fuel.jpg" alt="Rocket Fuel — representative image" loading="lazy" decoding="async">
+          <div class="menu-card__body">
+            <p class="menu-card__category">Premiums</p>
+            <h3>Rocket Fuel</h3>
+            <p class="menu-card__price">KES 1,490</p>
+            <p class="menu-card__note">Representative image</p>
+          </div>
+        </article>
+        <article class="menu-card" data-menu-category="premiums">
+          <img src="assets/images/menu/muscle-man.jpg" alt="Muscle Man — representative image" loading="lazy" decoding="async">
+          <div class="menu-card__body">
+            <p class="menu-card__category">Premiums</p>
+            <h3>Muscle Man</h3>
+            <p class="menu-card__price">KES 1,490</p>
+            <p class="menu-card__note">Representative image</p>
+          </div>
+        </article>
+        <article class="menu-card" data-menu-category="premiums">
+          <img src="assets/images/menu/almost-paradise.jpg" alt="Almost Paradise — representative image" loading="lazy" decoding="async">
+          <div class="menu-card__body">
+            <p class="menu-card__category">Premiums</p>
+            <h3>Almost Paradise</h3>
+            <p class="menu-card__price">KES 1,490</p>
+            <p class="menu-card__note">Representative image</p>
+          </div>
+        </article>
+        <article class="menu-card" data-menu-category="premiums">
+          <img src="assets/images/menu/hubba-bubba.jpg" alt="Hubba Bubba — representative image" loading="lazy" decoding="async">
+          <div class="menu-card__body">
+            <p class="menu-card__category">Premiums</p>
+            <h3>Hubba Bubba</h3>
+            <p class="menu-card__price">KES 1,490</p>
+            <p class="menu-card__note">Representative image</p>
+          </div>
+        </article>
+        <article class="menu-card" data-menu-category="premiums">
+          <img src="assets/images/menu/tazan.jpg" alt="Tazan — representative image" loading="lazy" decoding="async">
+          <div class="menu-card__body">
+            <p class="menu-card__category">Premiums</p>
+            <h3>Tazan</h3>
+            <p class="menu-card__price">KES 1,490</p>
+            <p class="menu-card__note">Representative image</p>
+          </div>
+        </article>
+        <article class="menu-card" data-menu-category="other favourites">
+          <img src="assets/images/menu/therapy.jpg" alt="Therapy — representative image" loading="lazy" decoding="async">
+          <div class="menu-card__body">
+            <p class="menu-card__category">Other favourites</p>
             <h3>Therapy</h3>
-            <p>A little moment just for you.</p>
+            <p class="menu-card__price">KES 590</p>
+            <p class="menu-card__note">Representative image</p>
           </div>
         </article>
-        <article class="menu-card">
-          <img src="/assets/images/menu/minty.jpg" alt="Ice cream treat representing Minty" loading="lazy">
+        <article class="menu-card" data-menu-category="other favourites">
+          <img src="assets/images/menu/minty.jpg" alt="Minty — representative image" loading="lazy" decoding="async">
           <div class="menu-card__body">
+            <p class="menu-card__category">Other favourites</p>
             <h3>Minty</h3>
-            <p>Fresh mood, cool moment.</p>
+            <p class="menu-card__price">KES 530</p>
+            <p class="menu-card__note">Representative image</p>
           </div>
         </article>
-        <article class="menu-card">
-          <img src="/assets/images/menu/tobby-boat.jpg" alt="Ice cream treat representing Tobby on a Boat" loading="lazy">
+        <article class="menu-card" data-menu-category="other favourites">
+          <img src="assets/images/menu/tobby-boat.jpg" alt="Tobby on a Boat — representative image" loading="lazy" decoding="async">
           <div class="menu-card__body">
+            <p class="menu-card__category">Other favourites</p>
             <h3>Tobby on a Boat</h3>
-            <p>A name worth discovering.</p>
+            <p class="menu-card__price">KES 1,020</p>
+            <p class="menu-card__note">Representative image</p>
+          </div>
+        </article>
+        <article class="menu-card" data-menu-category="other favourites">
+          <img src="assets/images/menu/frozen-feast.jpg" alt="Frozen Feast — representative image" loading="lazy" decoding="async">
+          <div class="menu-card__body">
+            <p class="menu-card__category">Other favourites</p>
+            <h3>Frozen Feast</h3>
+            <p class="menu-card__price">KES 800</p>
+            <p class="menu-card__note">Representative image</p>
+          </div>
+        </article>
+        <article class="menu-card" data-menu-category="other favourites">
+          <img src="assets/images/menu/familiar-stranger.jpg" alt="Familiar Stranger — representative image" loading="lazy" decoding="async">
+          <div class="menu-card__body">
+            <p class="menu-card__category">Other favourites</p>
+            <h3>Familiar Stranger</h3>
+            <p class="menu-card__note">Representative image</p>
+          </div>
+        </article>
+        <article class="menu-card" data-menu-category="other favourites">
+          <img src="assets/images/menu/time-keeper.jpg" alt="Time Keeper — representative image" loading="lazy" decoding="async">
+          <div class="menu-card__body">
+            <p class="menu-card__category">Other favourites</p>
+            <h3>Time Keeper</h3>
+            <p class="menu-card__note">Representative image</p>
+          </div>
+        </article>
+        <article class="menu-card" data-menu-category="other favourites">
+          <img src="assets/images/menu/my-ex.jpg" alt="My Ex — representative image" loading="lazy" decoding="async">
+          <div class="menu-card__body">
+            <p class="menu-card__category">Other favourites</p>
+            <h3>My Ex</h3>
+            <p class="menu-card__note">Representative image</p>
           </div>
         </article>
       </div>
-      <p class="menu-note">Menu photographs may be representative rather than exact product images.</p>
+
+      <p class="menu-note">Menu photographs are representative rather than exact product images. Prices are from the supplied brief — please confirm with the shop.</p>
     </section>
 
+    <!-- ============ GALLERY ============ -->
     <section class="section gallery-section" id="gallery">
-      <div class="section-heading">
+      <div class="section-heading reveal">
         <p class="eyebrow">The YOLO wall</p>
         <h2>Good days look like this.</h2>
         <p>A little colour, a little sweetness, and moments worth keeping.</p>
       </div>
       <div class="gallery-grid">
-        <img src="/assets/images/gallery/scoops-spectrum.webp" alt="Colourful ice cream scoops" loading="lazy">
-        <img src="/assets/images/gallery/berry-bowl.jpg" alt="Berry ice cream bowl" loading="lazy">
-        <img src="/assets/images/gallery/waffle-bowl.avif" alt="Waffle bowl dessert" loading="lazy">
-        <img src="/assets/images/gallery/sorbet-trio.jpg" alt="Three colourful sorbet scoops" loading="lazy">
-        <img src="/assets/images/gallery/shake-pair.jpg" alt="Ice cream shakes" loading="lazy">
+        <img src="assets/images/gallery/scoops-spectrum.webp" alt="Colourful ice cream scoops" loading="lazy" decoding="async">
+        <img src="assets/images/gallery/berry-bowl.jpg" alt="Berry ice cream bowl" loading="lazy" decoding="async">
+        <img src="assets/images/gallery/parfait-tall.jpg" alt="Tall layered parfait" loading="lazy" decoding="async">
+        <img src="assets/images/gallery/sorbet-trio.jpg" alt="Three colourful sorbet scoops" loading="lazy" decoding="async">
+        <img src="assets/images/gallery/shake-duo.jpg" alt="Two milkshakes side by side" loading="lazy" decoding="async">
+        <img src="assets/images/gallery/cone-tower.jpg" alt="A tower of ice cream cones" loading="lazy" decoding="async">
+        <img src="assets/images/gallery/shake-sprinkles.jpg" alt="Milkshake topped with sprinkles" loading="lazy" decoding="async">
+        <img src="assets/images/gallery/scoops-marshmallow.jpg" alt="Scoops with marshmallow" loading="lazy" decoding="async">
+        <img src="assets/images/gallery/waffle-bowl.avif" alt="Ice cream in a waffle bowl" loading="lazy" decoding="async">
+        <img src="assets/images/gallery/shake-oreo.webp" alt="Cookies-and-cream milkshake" loading="lazy" decoding="async">
       </div>
     </section>
 
+    <!-- ============ CELEBRATIONS ============ -->
+    <!--
+      Invitation-only copy: no packages, pricing or services are claimed.
+      Enquiries route to the verified phone number and Instagram handle.
+    -->
+    <section class="section celebrate-section" id="celebrate" aria-labelledby="celebrate-title">
+      <div class="celebrate-copy reveal">
+        <p class="eyebrow">Make it a celebration</p>
+        <h2 id="celebrate-title">Celebrate like you mean it.</h2>
+        <p>
+          Planning a birthday, a team treat or a well-earned treat-yourself?
+          Bring the occasion — we'll bring the ice cream.
+        </p>
+        <ul class="celebrate-chips" aria-label="Occasions worth celebrating">
+          <li>Birthdays</li>
+          <li>Team treats</li>
+          <li>Just because</li>
+        </ul>
+        <div class="celebrate-actions">
+          <a class="cta" href="tel:+254741755073">Call to plan</a>
+          <a class="cta cta--ghost" href="https://www.instagram.com/yolo_icec/" target="_blank" rel="noopener noreferrer">Message us on Instagram ↗</a>
+        </div>
+        <p class="celebrate-note">Give us a call or a DM and we'll help sort the details.</p>
+      </div>
+
+      <div class="celebrate-media reveal">
+        <img
+          class="celebrate-media__main"
+          src="assets/images/gallery/cone-tower.jpg"
+          alt="A tower of ice cream cones ready to share"
+          loading="lazy"
+          decoding="async"
+        >
+        <img
+          class="celebrate-media__float"
+          src="assets/images/gallery/parfait-tall.jpg"
+          alt="A tall layered parfait"
+          loading="lazy"
+          decoding="async"
+        >
+        <span class="celebrate-badge" aria-hidden="true">Made for<br>big smiles</span>
+      </div>
+    </section>
+
+    <!-- ============ LOCATION ============ -->
     <section class="section location-section" id="location" aria-labelledby="location-title">
-      <div class="location-copy">
+      <div class="location-copy reveal">
         <p class="eyebrow">Come find your happy place</p>
         <h2 id="location-title">A little stop.<br><em>A better day.</em></h2>
         <p>Find YOLO Ice Cream at Aga Khan Walk in Nairobi. Use the map to plan your visit.</p>
@@ -195,30 +551,104 @@
         <a class="cta" href="https://www.google.com/maps/search/?api=1&query=YOLO+Ice+Cream+Aga+Khan+Walk+Nairobi" target="_blank" rel="noopener noreferrer">Open directions <span aria-hidden="true">↗</span></a>
       </div>
       <div class="map-frame">
-        <iframe title="Map showing YOLO Ice Cream at Aga Khan Walk, Nairobi"
+        <iframe
+          title="Map showing YOLO Ice Cream at Aga Khan Walk, Nairobi"
           src="https://maps.google.com/maps?q=YOLO%20Ice%20Cream%20Aga%20Khan%20Walk%20Nairobi&t=&z=16&ie=UTF8&iwloc=&output=embed"
-          loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen></iframe>
         <span class="map-caption"><span aria-hidden="true">●</span> YOLO Ice Cream · Nairobi</span>
       </div>
     </section>
 
-  <section class="section visit-section" id="visit">
-      <p class="eyebrow" style="color:#fff">Your next happy place</p>
-      <h2>It's ice cream o'clock.</h2>
-      <p>Come through to YOLO Ice Cream at Aga Khan Walk, Nairobi.</p>
-      <p>Call <a href="tel:+254741755073">+254 741 755 073</a></p>
-      <a class="cta" href="https://www.google.com/maps/search/?api=1&query=YOLO+Ice+Cream+Aga+Khan+Walk+Nairobi" target="_blank" rel="noopener noreferrer">Get directions</a>
+    <!-- ============ FAQ ============ -->
+    <!-- Native <details>/<summary>: accessible accordion with zero JavaScript. -->
+    <section class="section faq-section" id="faq" aria-labelledby="faq-title">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Good to know</p>
+        <h2 id="faq-title">Questions, answered.</h2>
+      </div>
+
+      <div class="faq-list reveal">
+        <details class="faq-item" open>
+          <summary>Where is YOLO Ice Cream?</summary>
+          <p>
+            You'll find us on Aga Khan Walk in Nairobi, Kenya. Tap
+            <a href="https://www.google.com/maps/search/?api=1&query=YOLO+Ice+Cream+Aga+Khan+Walk+Nairobi" target="_blank" rel="noopener noreferrer">Open directions</a>
+            to navigate straight to the shop.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>How much does the ice cream cost?</summary>
+          <p>
+            Listed prices range from KES 530 for other favourites to KES 1,490
+            for the premium creations. Our listed prices come from an earlier
+            menu brief, so please confirm current prices with the shop before
+            visiting.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>What are your opening hours?</summary>
+          <p>
+            We haven't published verified opening hours on this site. Please
+            call <a href="tel:+254741755073">+254 741 755 073</a> or check the
+            YOLO Ice Cream
+            <a href="https://www.instagram.com/yolo_icec/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            stories before visiting.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Can I celebrate a birthday or group occasion at YOLO?</summary>
+          <p>
+            You're very welcome to celebrate with us. Call
+            <a href="tel:+254741755073">+254 741 755 073</a> or send a DM to
+            <a href="https://www.instagram.com/yolo_icec/" target="_blank" rel="noopener noreferrer">@yolo_icec</a>
+            on Instagram and we'll help with the details.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Are the photos on this site the exact products?</summary>
+          <p>
+            No. Menu photographs are representative stock imagery matched to
+            each creation's mood, and every card is labelled "Representative
+            image". The real thing is even better.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>How can I contact YOLO Ice Cream?</summary>
+          <p>
+            Call <a href="tel:+254741755073">+254 741 755 073</a>, or message
+            <a href="https://www.instagram.com/yolo_icec/" target="_blank" rel="noopener noreferrer">@yolo_icec</a>
+            on Instagram. You can also find us on Aga Khan Walk in Nairobi.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ============ VISIT CTA ============ -->
+    <section class="section visit-section" id="visit">
+      <div class="reveal">
+        <p class="eyebrow">Your next happy place</p>
+        <h2>It's ice cream o'clock.</h2>
+        <p>Come through to YOLO Ice Cream at Aga Khan Walk, Nairobi.</p>
+        <p>Call <a href="tel:+254741755073">+254 741 755 073</a></p>
+        <a class="cta" href="https://www.google.com/maps/search/?api=1&query=YOLO+Ice+Cream+Aga+Khan+Walk+Nairobi" target="_blank" rel="noopener noreferrer">Get directions</a>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <a class="brand" href="#top" aria-label="YOLO Ice Cream home">YOLO<span>.</span></a>
-    <span>It's always ice cream o'clock.</span>
+    <a class="brand" href="#top" aria-label="YOLO Ice Cream — back to top">YOLO<span>.</span></a>
+    <span>It's always ice cream o'clock. · © <span id="current-year">2026</span> YOLO Ice Cream</span>
     <a href="https://www.instagram.com/yolo_icec/" target="_blank" rel="noopener noreferrer">Follow the good stuff ↗</a>
     <a href="#top">Back to top ↑</a>
   </footer>
 
-  <script type="module" src="/src/app.js"></script>
+  <script type="module" src="src/app.js"></script>
 </body>
 </html>
-```

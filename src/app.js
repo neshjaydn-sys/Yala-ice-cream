@@ -1,8 +1,9 @@
-import { menuItems, YOLO_INTERIOR_IMAGE } from "./menu-data.js";
+import { menuItems } from "./menu-data.js";
 
 /* =========================================================
    YOLO ICE CREAM — APP.JS
-   Hero video, flavour selector, carousel, menu, gallery
+   Hero scroll-video · flavour theming · carousel · menu
+   filters · mobile nav · header · reveals
    ========================================================= */
 
 (() => {
@@ -13,42 +14,15 @@ import { menuItems, YOLO_INTERIOR_IMAGE } from "./menu-data.js";
 
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-  const flavours = ["strawberry", "chocolate", "mango", "mint", "vanilla"];
-
-  const flavourMeta = {
-    strawberry: {
-      name: "Strawberry",
-      tagline: "Bright, berry, unbothered."
-    },
-    chocolate: {
-      name: "Chocolate",
-      tagline: "Dark, rich, unapologetic."
-    },
-    mango: {
-      name: "Mango",
-      tagline: "Sunshine, served cold."
-    },
-    mint: {
-      name: "Mint",
-      tagline: "Cool, calm, completely fresh."
-    },
-    vanilla: {
-      name: "Vanilla",
-      tagline: "Soft, classic, always right."
-    }
-  };
-
   /* =======================================================
      1. HERO — SCROLL-CONTROLLED VIDEO
      ======================================================= */
 
-  const hero = $("#top") || $(".hero");
+  const hero = $(".hero");
   const heroVideo = $("#hero-scroll-video");
-  const heroFlavourName = $("#hero-flavour-name");
-  const heroFlavourTagline = $("#hero-flavour-tagline");
-  const flavourButtons = $$("[data-flavour-choice]");
 
   let videoFramePending = false;
+  let heroInView = true;
 
   function updateHeroVideo() {
     videoFramePending = false;
@@ -56,6 +30,7 @@ import { menuItems, YOLO_INTERIOR_IMAGE } from "./menu-data.js";
     if (
       !hero ||
       !heroVideo ||
+      !heroInView ||
       reducedMotion.matches ||
       !Number.isFinite(heroVideo.duration) ||
       heroVideo.duration <= 0 ||
@@ -67,25 +42,21 @@ import { menuItems, YOLO_INTERIOR_IMAGE } from "./menu-data.js";
     const rect = hero.getBoundingClientRect();
     const scrollDistance = Math.max(1, hero.offsetHeight - window.innerHeight);
 
-    const progress = Math.min(
-      1,
-      Math.max(0, -rect.top / scrollDistance)
-    );
-
+    const progress = Math.min(1, Math.max(0, -rect.top / scrollDistance));
     const targetTime = progress * heroVideo.duration;
 
     if (Math.abs(heroVideo.currentTime - targetTime) > 0.035) {
       try {
         heroVideo.currentTime = targetTime;
       } catch {
-        // Some browsers may reject seeking until the video is ready.
+        // Some browsers reject seeking until the video is ready; the next
+        // scroll event retries automatically.
       }
     }
   }
 
   function requestHeroVideoUpdate() {
     if (videoFramePending) return;
-
     videoFramePending = true;
     window.requestAnimationFrame(updateHeroVideo);
   }
@@ -100,21 +71,30 @@ import { menuItems, YOLO_INTERIOR_IMAGE } from "./menu-data.js";
     heroVideo.addEventListener("loadeddata", requestHeroVideoUpdate);
 
     heroVideo.addEventListener("error", () => {
+      // Poster image and gradient fallback remain visible underneath.
       heroVideo.style.display = "none";
       console.warn(
         "YOLO hero video could not load. Check videos/yolo_ice_cream_hero.mp4."
       );
     });
 
+    // Only scrub while the hero is actually on screen.
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(
+        entries => {
+          heroInView = entries[0]?.isIntersecting ?? true;
+          if (heroInView) requestHeroVideoUpdate();
+        },
+        { threshold: 0 }
+      ).observe(hero);
+    }
+
     window.addEventListener("scroll", requestHeroVideoUpdate, {
       passive: true
     });
-
     window.addEventListener("resize", requestHeroVideoUpdate);
 
-    if (reducedMotion.matches) {
-      heroVideo.pause();
-    } else {
+    if (!reducedMotion.matches) {
       requestHeroVideoUpdate();
     }
   }
@@ -122,25 +102,30 @@ import { menuItems, YOLO_INTERIOR_IMAGE } from "./menu-data.js";
   initialiseHeroVideo();
 
   /* =======================================================
-     2. FLAVOUR SELECTOR
+     2. FLAVOUR SELECTOR — text + hero theming
+     The selected flavour drives CSS custom properties via
+     .hero[data-flavour], tinting the hero glow and headline.
      ======================================================= */
 
+  const flavourMeta = {
+    strawberry: { name: "Strawberry", tagline: "Bright, berry, unbothered." },
+    chocolate: { name: "Chocolate", tagline: "Dark, rich, unapologetic." },
+    mango: { name: "Mango", tagline: "Sunshine, served cold." },
+    mint: { name: "Mint", tagline: "Cool, calm, completely fresh." },
+    vanilla: { name: "Vanilla", tagline: "Soft, classic, always right." }
+  };
+
+  const heroFlavourName = $("#hero-flavour-name");
+  const heroFlavourTagline = $("#hero-flavour-tagline");
+  const flavourButtons = $$("[data-flavour-choice]");
+
   function selectFlavour(flavour) {
-    if (!flavours.includes(flavour)) return;
-
     const meta = flavourMeta[flavour];
+    if (!meta) return;
 
-    if (hero) {
-      hero.dataset.flavour = flavour;
-    }
-
-    if (heroFlavourName) {
-      heroFlavourName.textContent = meta.name;
-    }
-
-    if (heroFlavourTagline) {
-      heroFlavourTagline.textContent = meta.tagline;
-    }
+    if (hero) hero.dataset.flavour = flavour;
+    if (heroFlavourName) heroFlavourName.textContent = meta.name;
+    if (heroFlavourTagline) heroFlavourTagline.textContent = meta.tagline;
 
     flavourButtons.forEach(button => {
       button.setAttribute(
@@ -157,45 +142,96 @@ import { menuItems, YOLO_INTERIOR_IMAGE } from "./menu-data.js";
   });
 
   /* =======================================================
-     3. 3D CIRCULAR CAROUSEL
+     3. FLAVOURS CAROUSEL — drag, arrows, keyboard
      ======================================================= */
 
   const orbit = $("#yolo-orbit");
-  const orbitRing = $("#yolo-orbit-ring");
   const orbitPrev = $("#orbit-prev");
   const orbitNext = $("#orbit-next");
 
   function orbitStep() {
-    const card = orbitRing?.querySelector(".orbit__item");
-    if (!card) return 280;
-    const styles = window.getComputedStyle(orbitRing);
+    const card = orbit?.querySelector(".orbit__item");
+    if (!card) return 300;
+
+    const styles = window.getComputedStyle(orbit);
     const gap = Number.parseFloat(styles.columnGap || styles.gap || "0") || 0;
+
     return card.getBoundingClientRect().width + gap;
   }
 
-  orbitPrev?.addEventListener("click", () => {
-    orbit?.scrollBy({ left: -orbitStep(), behavior: reducedMotion.matches ? "auto" : "smooth" });
-  });
+  function updateOrbitControls() {
+    if (!orbit || !orbitPrev || !orbitNext) return;
 
-  orbitNext?.addEventListener("click", () => {
-    orbit?.scrollBy({ left: orbitStep(), behavior: reducedMotion.matches ? "auto" : "smooth" });
-  });
+    const maxScroll = orbit.scrollWidth - orbit.clientWidth;
+    const atStart = orbit.scrollLeft <= 4;
+    const atEnd = orbit.scrollLeft >= maxScroll - 4;
+
+    orbitPrev.disabled = atStart;
+    orbitNext.disabled = atEnd || maxScroll <= 0;
+  }
+
+  function scrollOrbit(direction) {
+    orbit?.scrollBy({
+      left: orbitStep() * direction,
+      behavior: reducedMotion.matches ? "auto" : "smooth"
+    });
+  }
+
+  orbitPrev?.addEventListener("click", () => scrollOrbit(-1));
+  orbitNext?.addEventListener("click", () => scrollOrbit(1));
 
   orbit?.addEventListener("keydown", event => {
     if (event.key === "ArrowRight") {
       event.preventDefault();
-      orbit.scrollBy({ left: orbitStep(), behavior: reducedMotion.matches ? "auto" : "smooth" });
+      scrollOrbit(1);
     } else if (event.key === "ArrowLeft") {
       event.preventDefault();
-      orbit.scrollBy({ left: -orbitStep(), behavior: reducedMotion.matches ? "auto" : "smooth" });
+      scrollOrbit(-1);
     }
   });
 
+  /* Pointer drag-to-scroll (mouse, touch, pen). */
+  if (orbit) {
+    let dragStartX = 0;
+    let dragStartScroll = 0;
+    let dragging = false;
+
+    orbit.addEventListener("pointerdown", event => {
+      if (event.pointerType === "touch") return; // Native touch scrolling is better.
+      dragging = true;
+      dragStartX = event.clientX;
+      dragStartScroll = orbit.scrollLeft;
+      orbit.classList.add("is-dragging");
+      orbit.setPointerCapture(event.pointerId);
+    });
+
+    orbit.addEventListener("pointermove", event => {
+      if (!dragging) return;
+      orbit.scrollLeft = dragStartScroll - (event.clientX - dragStartX);
+    });
+
+    const endDrag = event => {
+      if (!dragging) return;
+      dragging = false;
+      orbit.classList.remove("is-dragging");
+      if (orbit.hasPointerCapture(event.pointerId)) {
+        orbit.releasePointerCapture(event.pointerId);
+      }
+    };
+
+    orbit.addEventListener("pointerup", endDrag);
+    orbit.addEventListener("pointercancel", endDrag);
+
+    orbit.addEventListener("scroll", updateOrbitControls, { passive: true });
+    window.addEventListener("resize", updateOrbitControls);
+    updateOrbitControls();
+  }
+
   /* =======================================================
-     4. MENU RENDERING
+     4. MENU — render from data + category filters
      ======================================================= */
 
-  const menuGrid = $("#menu-grid") || $(".menu-grid");
+  const menuGrid = $("#menu-grid");
 
   function escapeHTML(value) {
     return String(value ?? "").replace(/[&<>"']/g, character => {
@@ -206,7 +242,6 @@ import { menuItems, YOLO_INTERIOR_IMAGE } from "./menu-data.js";
         '"': "&quot;",
         "'": "&#39;"
       };
-
       return entities[character];
     });
   }
@@ -215,22 +250,20 @@ import { menuItems, YOLO_INTERIOR_IMAGE } from "./menu-data.js";
     const name = escapeHTML(item.name);
     const category = escapeHTML(item.category || "");
     const image = escapeHTML(item.image || "");
+    const categorySlug = escapeHTML((item.category || "").toLowerCase());
     const price = item.price
       ? `<p class="menu-card__price">${escapeHTML(item.price)}</p>`
       : "";
-
     const representativeNotice =
-      item.imageType === "representative" ||
-      item.exactProductImage === false
+      item.imageType === "representative" || item.exactProductImage === false
         ? '<p class="menu-card__note">Representative image</p>'
         : "";
 
     return `
-      <article class="menu-card" data-menu-category="${category}">
+      <article class="menu-card" data-menu-category="${categorySlug}">
         ${
           image
-            ? `<img src="${image}" alt="${name}" loading="lazy"
-                 onerror="this.style.display='none'">`
+            ? `<img src="${image}" alt="${escapeHTML(item.name)} — representative image" loading="lazy" decoding="async">`
             : ""
         }
         <div class="menu-card__body">
@@ -249,301 +282,165 @@ import { menuItems, YOLO_INTERIOR_IMAGE } from "./menu-data.js";
     menuGrid.innerHTML = items.map(createMenuCard).join("");
   }
 
-  /*
-   * The supplied HTML already includes three sample menu cards.
-   * Render the full menu only when the page explicitly provides
-   * a dedicated #menu-grid element, avoiding duplicate cards.
-   */
-  if ($("#menu-grid")) {
-    renderMenu();
+  renderMenu();
+
+  const menuFilters = $$("[data-menu-filter]");
+
+  function applyMenuFilter(selectedCategory) {
+    menuFilters.forEach(filter => {
+      filter.setAttribute(
+        "aria-pressed",
+        String(filter.dataset.menuFilter === selectedCategory)
+      );
+    });
+
+    const normalized = (selectedCategory || "all").toLowerCase();
+
+    $$(".menu-card", menuGrid || document).forEach(card => {
+      const cardCategory = (card.dataset.menuCategory || "").toLowerCase();
+      const matches = normalized === "all" || cardCategory === normalized;
+      card.hidden = !matches;
+    });
   }
 
-  /* Optional category filters for compatible existing markup. */
-  const menuFilterButtons = $$("[data-menu-filter]");
-
-  menuFilterButtons.forEach(button => {
+  menuFilters.forEach(button => {
     button.addEventListener("click", () => {
-      const selectedCategory = button.dataset.menuFilter;
-
-      menuFilterButtons.forEach(filter => {
-        filter.setAttribute(
-          "aria-pressed",
-          String(filter === button)
-        );
-      });
-
-      const cards = $$(".menu-card", menuGrid || document);
-
-      cards.forEach(card => {
-        const cardCategory = card.dataset.menuCategory || "";
-        const matches =
-          selectedCategory === "all" ||
-          !selectedCategory ||
-          cardCategory.toLowerCase() === selectedCategory.toLowerCase();
-
-        card.hidden = !matches;
-      });
+      applyMenuFilter(button.dataset.menuFilter);
     });
   });
 
   /* =======================================================
-     5. INTERIOR IMAGES
+     5. MOBILE NAVIGATION
      ======================================================= */
 
-  if (YOLO_INTERIOR_IMAGE) {
-    [
-      "#wall-interior-image",
-      "#location-interior-image"
-    ].forEach(selector => {
-      const image = $(selector);
+  const navToggle = $("#nav-toggle");
+  const mobileNav = $("#mobile-nav");
 
-      if (!image) return;
+  function setMobileNavigation(open) {
+    if (!navToggle || !mobileNav) return;
 
-      image.src = YOLO_INTERIOR_IMAGE;
+    navToggle.setAttribute("aria-expanded", String(open));
+    navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    mobileNav.hidden = false;
 
-      image.addEventListener(
-        "error",
-        () => {
-          image.style.display = "none";
-        },
-        { once: true }
-      );
+    // Allow the browser one frame so the transition can play.
+    window.requestAnimationFrame(() => {
+      mobileNav.classList.toggle("is-open", open);
+    });
+
+    document.body.classList.toggle("nav-open", open);
+
+    if (open) {
+      $("a", mobileNav)?.focus({ preventScroll: true });
+    }
+  }
+
+  if (navToggle && mobileNav) {
+    navToggle.addEventListener("click", () => {
+      const isOpen = navToggle.getAttribute("aria-expanded") === "true";
+      setMobileNavigation(!isOpen);
+    });
+
+    $$("a", mobileNav).forEach(link => {
+      link.addEventListener("click", () => setMobileNavigation(false));
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key !== "Escape") return;
+      if (navToggle.getAttribute("aria-expanded") !== "true") return;
+
+      setMobileNavigation(false);
+      navToggle.focus();
+    });
+
+    // Return focus to the toggle when the panel closes via any link.
+    mobileNav.addEventListener("transitionend", () => {
+      if (mobileNav.classList.contains("is-open")) return;
+      mobileNav.hidden = true;
     });
   }
 
   /* =======================================================
-     6. SCROLL REVEAL ANIMATIONS
+     6. HEADER — scrolled state + reading progress
      ======================================================= */
 
-  const revealElements = $$(
-    "[data-reveal], .reveal, .story, .section-heading, .menu-card"
-  );
+  const header = $("#site-header");
+  const scrollProgress = $("#scroll-progress");
+
+  let headerFramePending = false;
+
+  function updateHeader() {
+    headerFramePending = false;
+
+    if (header) {
+      header.classList.toggle("is-scrolled", window.scrollY > 40);
+    }
+
+    if (scrollProgress) {
+      const scrollable =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
+      scrollProgress.style.transform = `scaleX(${Math.min(1, Math.max(0, progress))})`;
+    }
+  }
+
+  function requestHeaderUpdate() {
+    if (headerFramePending) return;
+    headerFramePending = true;
+    window.requestAnimationFrame(updateHeader);
+  }
+
+  window.addEventListener("scroll", requestHeaderUpdate, { passive: true });
+  window.addEventListener("resize", requestHeaderUpdate);
+  updateHeader();
+
+  /* =======================================================
+     7. SCROLL REVEALS
+     ======================================================= */
+
+  const revealElements = $$(".reveal, .menu-card");
 
   if (!reducedMotion.matches && "IntersectionObserver" in window) {
     const revealObserver = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
           if (!entry.isIntersecting) return;
-
-          entry.target.classList.add("is-visible", "in");
+          entry.target.classList.add("is-visible");
           revealObserver.unobserve(entry.target);
         });
       },
-      {
-        threshold: 0.12,
-        rootMargin: "0px 0px -35px 0px"
-      }
+      { threshold: 0.12, rootMargin: "0px 0px -35px 0px" }
     );
 
     revealElements.forEach(element => {
-      element.classList.add("will-reveal");
       revealObserver.observe(element);
     });
   } else {
-    revealElements.forEach(element => {
-      element.classList.add("is-visible", "in");
-    });
+    revealElements.forEach(element => element.classList.add("is-visible"));
   }
 
   /* =======================================================
-     7. HEADER SCROLL STATE
+     8. IMAGE FALLBACKS
      ======================================================= */
 
-  const header = $(".site-header");
-  let headerFramePending = false;
-
-  function updateHeader() {
-    headerFramePending = false;
-
-    if (!header) return;
-
-    header.classList.toggle("is-scrolled", window.scrollY > 40);
-  }
-
-  function requestHeaderUpdate() {
-    if (headerFramePending) return;
-
-    headerFramePending = true;
-    window.requestAnimationFrame(updateHeader);
-  }
-
-  window.addEventListener("scroll", requestHeaderUpdate, {
-    passive: true
-  });
-
-  updateHeader();
-
-  /* =======================================================
-     8. MOBILE NAVIGATION SUPPORT
-     ======================================================= */
-
-  const menuToggle = $(
-    "[data-menu-toggle], .menu-toggle, #menu-toggle"
-  );
-
-  const mobileNavigation = $(
-    "[data-mobile-nav], .mobile-nav, #mobile-nav"
-  );
-
-  function setMobileNavigation(open) {
-    if (!menuToggle || !mobileNavigation) return;
-
-    menuToggle.setAttribute("aria-expanded", String(open));
-    mobileNavigation.classList.toggle("is-open", open);
-    mobileNavigation.hidden = !open;
-  }
-
-  if (menuToggle && mobileNavigation) {
-    setMobileNavigation(false);
-
-    menuToggle.addEventListener("click", () => {
-      const isOpen =
-        menuToggle.getAttribute("aria-expanded") === "true";
-
-      setMobileNavigation(!isOpen);
-    });
-
-    $$("a", mobileNavigation).forEach(link => {
-      link.addEventListener("click", () => {
-        setMobileNavigation(false);
-      });
-    });
-
-    document.addEventListener("keydown", event => {
-      if (event.key === "Escape") {
-        setMobileNavigation(false);
-      }
-    });
-  }
-
-  /* =======================================================
-     9. GENERIC CAROUSEL SUPPORT
-     For existing creation/gallery controls
-     ======================================================= */
-
-  const creationTrack = $("#creations-track");
-  const creationDots = $("#creations-dots");
-  const creationPrevious = $("[data-carousel-prev]");
-  const creationNext = $("[data-carousel-next]");
-  const creationStepButtons = $$("[data-carousel-step]");
-
-  function getCreationStep() {
-    if (!creationTrack) return 0;
-
-    const firstCard = creationTrack.firstElementChild;
-
-    if (!firstCard) return 0;
-
-    const trackStyles = getComputedStyle(creationTrack);
-    const gap = parseFloat(trackStyles.columnGap || trackStyles.gap) || 0;
-
-    return firstCard.getBoundingClientRect().width + gap;
-  }
-
-  function scrollCreations(direction) {
-    if (!creationTrack) return;
-
-    creationTrack.scrollBy({
-      left: getCreationStep() * direction,
-      behavior: reducedMotion.matches ? "auto" : "smooth"
-    });
-  }
-
-  creationPrevious?.addEventListener("click", () => {
-    scrollCreations(-1);
-  });
-
-  creationNext?.addEventListener("click", () => {
-    scrollCreations(1);
-  });
-
-  creationStepButtons.forEach(button => {
-    button.addEventListener("click", () => {
-      const direction = Number(button.dataset.carouselStep) || 1;
-      scrollCreations(direction);
-    });
-  });
-
-  if (creationTrack && creationDots) {
-    const dotButtons = $$("[data-creations-index]", creationDots);
-
-    function updateCreationDots() {
-      if (!dotButtons.length) return;
-
-      const step = getCreationStep();
-
-      if (!step) return;
-
-      const activeIndex = Math.round(creationTrack.scrollLeft / step);
-
-      dotButtons.forEach((button, index) => {
-        button.classList.toggle("is-active", index === activeIndex);
-        button.setAttribute(
-          "aria-current",
-          index === activeIndex ? "true" : "false"
-        );
-      });
-    }
-
-    dotButtons.forEach(button => {
-      button.addEventListener("click", () => {
-        const index = Number(button.dataset.creationsIndex);
-
-        if (!Number.isFinite(index)) return;
-
-        creationTrack.scrollTo({
-          left: getCreationStep() * index,
-          behavior: reducedMotion.matches ? "auto" : "smooth"
-        });
-      });
-    });
-
-    creationTrack.addEventListener("scroll", updateCreationDots, {
-      passive: true
-    });
-
-    window.addEventListener("resize", updateCreationDots);
-
-    updateCreationDots();
-  }
-
-  /* =======================================================
-     10. GALLERY IMAGE FALLBACKS
-     ======================================================= */
-
-  $$("img[data-fallback]").forEach(image => {
+  $$("img").forEach(image => {
     image.addEventListener(
       "error",
       () => {
-        const fallback = image.dataset.fallback;
-
-        if (fallback && image.src !== fallback) {
-          image.src = fallback;
-        } else {
-          image.style.visibility = "hidden";
-        }
+        image.style.visibility = "hidden";
       },
       { once: true }
     );
   });
 
   /* =======================================================
-     11. CURRENT YEAR
+     9. FOOTER YEAR
      ======================================================= */
 
-  $$("[data-current-year]").forEach(element => {
-    element.textContent = String(new Date().getFullYear());
-  });
-
-  /* =======================================================
-     12. INITIAL STATE
-     ======================================================= */
-
-  if (hero && !hero.dataset.flavour) {
-    hero.dataset.flavour = "strawberry";
+  const yearElement = $("#current-year");
+  if (yearElement) {
+    yearElement.textContent = String(new Date().getFullYear());
   }
-
-  requestHeroVideoUpdate();
 
   console.info("YOLO Ice Cream website initialized.");
 })();
