@@ -1404,7 +1404,8 @@ section {
   overflow: hidden;
   padding-top: clamp(80px, 9vw, 130px);
   padding-bottom: clamp(80px, 9vw, 130px);
-  background: var(--orange);
+  /* --orange-deep instead of --orange so white body text meets WCAG AA (4.73:1 vs 3.71:1) */
+  background: var(--orange-deep);
   color: var(--white);
   text-align: center;
 }
@@ -1438,7 +1439,7 @@ section {
 }
 
 .visit-section .eyebrow {
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--white);
 }
 
 .visit-section h2 {
